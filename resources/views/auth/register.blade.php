@@ -1,77 +1,142 @@
 @extends('layouts.app')
-
+@section('Style')
+    <link rel="stylesheet" href="{{ asset('build/assets/FrontEnd/style.css') }}">
+@endsection
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+<!-- Page disgn  -->
+<div class="row">
+    <section class="background-radial-gradient overflow-hidden" >
+        <div class="container text-center text-lg-start">
+            <div class="row gx-lg-5 align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0" style="z-index: 10">
+                    <h1 class="mt-2 display-5 fw-bold ls-tight animate__animated animate__fadeInUp" id="carPoolingHeading" style="color: hsl(218, 81%, 95%)">
+                        {{ __('CarPooling') }}<br />
+                        <span style="color: hsl(218, 81%, 75%)"> {{ __('Share rides and save money') }}</span>
+                    </h1>
+                    <img src="{{ asset("build/assets/img/loginimg.png") }}" alt="vector1">
+                </div>
+                <div class="col-lg-6 mb-3 mb-lg-0 position-relative">
+                    <!-- Background shapes -->
+                    <div id="radius-shape-1" class="position-absolute rounded-circle shadow-5-strong"></div>
+                    <div id="radius-shape-2" class="position-absolute shadow-5-strong"></div>
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
+                    <div class="card bg-glass">
+                        <div class="card-body px-4 py-4 px-md-5">
+                        <!-- Sign Up Form -->
+                            <div id="signup" class="tab-content signup">
+                                <h1 class="display-6">{{ __('Sign Up') }}</h1>
+                                <form method="POST" action="{{ route('register') }}">
+                                    @csrf
+                                    <div class="row">
+                                        <!-- First Name input -->
+                                        <div class="col-md-6 mb-2">
+                                            <div class="form-outline">
+                                                <input type="text" id="form3Example1" class="form-control @error('firstname') is-invalid @enderror" name="firstname" placeholder="First name"/>
+                                                @error('firstname')
+                                                    <span class="helper-text" data-error="wrong" data-success="right">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                            </div>
+                                        </div>
 
-                        <div class="row mb-3">
-                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
+                                        <!-- Last Name input -->
+                                        <div class="col-md-6 mb-4">
+                                            <div class="form-outline">
+                                                <input type="text" id="form3Example2" class="form-control @error('lastname') is-invalid @enderror" name="lastname" placeholder="Last name" />
+                                                @error('lastname')
+                                                    <span class="helper-text" data-error="wrong" data-success="right">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                    </div>
 
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                    <!-- Matricule input -->
+                                    <div class="form-outline mb-4">
+                                        <input type="text" id="form3Example3" class="form-control @error('matricule') is-invalid @enderror" name="matricule" placeholder="Matricule" />
+                                        @error('matricule')
+                                            <span class="helper-text" data-error="wrong" data-success="right">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
 
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                    <!-- Phone number input -->
+                                    <div class="form-outline mb-4">
+                                        <input type="tel" id="form3Example4" class="form-control @error('phoneNumber') is-invalid @enderror" name="phoneNumber" placeholder="Phone number"/>
+                                        @error('phoneNumber')
+                                            <span class="helper-text" data-error="wrong" data-success="right">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+
+                                    <!-- Email input -->
+                                    <div class="form-outline mb-4">
+                                        <input type="email" id="form3Example5" class="form-control @error('email') is-invalid @enderror" name="email" placeholder="Email Address"/>
+                                        @error('email')
+                                            <span class="helper-text" data-error="wrong" data-success="right">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+
+                                    <!-- Password input -->
+                                    <div class="form-outline mb-4">
+                                        <input type="password" id="form3Example6" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="Password"/>
+                                        @error('password')
+                                            <span class="helper-text" data-error="wrong" data-success="right">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+
+                                        <!-- Role selection labels with increased width and height in the same line -->
+                                        <div class="mb-2">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" value="driver" id="roleDriver" name="role">
+                                                <label class="form-check-label btn custom-label" for="roleDriver">
+                                                    {{ __('Driver') }}
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="mb-2">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input " type="radio" value="consumer" id="roleConsumer" name="role">
+                                                <label class="form-check-label btn custom-label" for="roleConsumer">
+                                                    {{ __('Consumer') }}
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <!-- Submit button -->
+                                        <button type="submit" class="btn btn-primary btn-block mb-4">
+                                            {{ __('Sign up') }}
+                                        </button>
+                                        <p>{{ __('Already have an account?') }} <a href="{{ route('login') }}" class="tab-link">{{ __('Login') }}</a></p>
+                                    </div>
+                                </form>
                             </div>
                         </div>
-
-                        <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                            </div>
-                        </div>
-
-                        <div class="row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 </div>
+</div>
+@endsection
+@section('scripte')
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+        document.location.hash = document.location.hash || 'signup';
+    });
+// title animation
+    $(document).ready(function() {
+            // Show the heading with a fade-in and upward movement effect
+        $('#carPoolingHeading').removeClass('d-none').hide().addClass('animate__fadeInUp').fadeIn(1000);
+    });
+</script>
 @endsection

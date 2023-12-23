@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use PhpParser\Node\Stmt\Else_;
 use Symfony\Component\HttpFoundation\Response;
 
 class UserRoleMiddleware
@@ -16,12 +17,17 @@ class UserRoleMiddleware
      */
     public function handle(Request $request, Closure $next, $role)
     {
-        // Check & verify with route, you will more understand
-        if(Auth::check() && Auth::user()->role == $role)
-        {
-            return $next($request);
+        // Check if the user is authenticated
+        if (!Auth::check()) {
+            return response()->json(['error' => 'You are not authenticated.'], 401);
         }
 
-        return response()->json(['You do not have permission to access for this page.']);
+        // Check if the user's role matches the expected role
+        if (Auth::user()->role === $role) {
+            return $next($request);
+        }else{
+            return response()->json(['error' => 'You do not have permission to access this page.'], 403);
+        }
     }
+
 }

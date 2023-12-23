@@ -51,16 +51,32 @@
         }
 
         .reserve-button:hover {
-            background-color: #792174;
+            background-color: #8a1a84;
+        }
+        .reserved-button{
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background-color: #128818;
+            color: #fff;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px 0px;
+            width: 30%;
         }
     </style>
 @endsection
 
 @section('content')
     <br>
+    <div class="text-center mt-3" style="margin-bottom: 20px">
+        <a href="{{ url('/user/home') }}" class="btn col-5" style="text-decoration-line:underline; color:blue; font-size:20px ">Retour</a>
+    </div>
     <div class="container col-8 ">
-        <h2 class="mt-3 text-center text-center custom-title">Liste des Trajets</h2>
-
+        <h2 class="mt-3 text-center text-center custom-title">Liste des Trajets Reserver</h2>
+    <br>
         <ul class="ride-list">
             <li class="ride-item">
                 <h3>Trajet 1</h3>
@@ -68,7 +84,7 @@
                 <p>Destination: Ville B</p>
                 <p>Heure de Départ: 08:00 AM</p>
                 <p>Nombre de Places Disponibles: 3</p>
-                <button class="reserve-button">Réserver Le Trajet</button>
+                <button class="reserved-button">Réserver Deja</button>
                 <!-- Ajoutez d'autres détails du trajet ici -->
             </li>
 
@@ -78,7 +94,7 @@
                 <p>Destination: Ville D</p>
                 <p>Heure de Départ: 09:30 AM</p>
                 <p>Nombre de Places Disponibles: 2</p>
-                <button class="reserve-button">Réserver Le Trajet</button>
+                <button class="reserved-button">Réserver Deja</button>
                 <!-- Ajoutez d'autres détails du trajet ici -->
             </li>
 

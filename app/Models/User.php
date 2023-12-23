@@ -47,9 +47,11 @@ class User extends Authenticatable
 
     public function getRoleAttribute($value): string
     {
-        $roles = ["user", "driver", "admin"];
-        return $roles[$value] ?? 'unknown';
+        $roles = ["user", "admin", "driver"];
+        return isset($roles[$value]) ? $roles[$value] : 'unknown';
     }
+
+
 
 
 }

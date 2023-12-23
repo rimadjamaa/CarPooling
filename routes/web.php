@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,20 +21,20 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
-Route::get('/home', [HomeController::class, 'index'])->name('home');
 // Route User
-Route::middleware(['auth','user-role:user'])->group(function()
+Route::middleware(['auth','role:user'])->group(function()
 {
-    Route::get("/home",[HomeController::class, 'userHome'])->name("user.home");
+    Route::get("/user/home",[HomeController::class, 'userHome'])->name("user.home");
+    Route::get("/user/Rides",[UserController::class, 'ListesRides'])->name("user.rides");
+    Route::get("/user/ReservedRides",[UserController::class, 'ReservedRides'])->name("user.reservedrides");
 });
 // Route Driver
-Route::middleware(['auth','user-role:driver'])->group(function()
+Route::middleware(['auth','role:driver'])->group(function()
 {
-    Route::get("/driver/home",[HomeController::class, 'driverHome'])->name("editor.home");
+    Route::get("/driver/home",[HomeController::class, 'driverHome'])->name("driver.home");
 });
 // Route Admin
-Route::middleware(['auth','user-role:admin'])->group(function()
+Route::middleware(['auth','role:admin'])->group(function()
 {
     Route::get("/admin/home",[HomeController::class, 'adminHome'])->name("admin.home");
 });
