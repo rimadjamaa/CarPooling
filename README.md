@@ -8,7 +8,7 @@
 The platform targets frequent travelers seeking an affordable and comfortable mode of transport. It is particularly beneficial for office commuters sharing common routes, enabling them to reduce travel costs. Anyone can choose to offer a ride, contributing to the reduction of their own expenses.
 
 ## 📋 Requirements
-To run this food website, you need the following software and technologies:
+To run this CarPooling website, you need the following software and technologies:
 
 - Web server (XAMPP)
 - PHP (version .....)
