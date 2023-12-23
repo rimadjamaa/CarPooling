@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('Style')
-    <link rel="stylesheet" href="{{ asset('build/assets/FrontEnd/RideSearche.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/FrontEnd/RideSearche.css') }}">
     <style>
         /* Ajoutez vos styles personnalisés ici */
         .ride-list {

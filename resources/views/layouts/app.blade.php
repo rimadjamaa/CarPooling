@@ -12,7 +12,7 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('build/assets/FrontEnd/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/FrontEnd/app.css') }}">
     {{-- bootstrap icons link --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.17.0/font/bootstrap-icons.css">
     @yield('Style')
@@ -56,7 +56,7 @@
                             <li class="nav-item dropdown">
 
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    <img src="{{ asset('build/assets/icons/person-circle.svg') }}" alt="Shopping Cart" id="icon">  {{ Auth::user()->name }}
+                                    <img src="{{ asset('assets/icons/person-circle.svg') }}" alt="Shopping Cart" id="icon">  {{ Auth::user()->name }}
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown" style="background-color: #ec547a;}">
                                     <a class="dropdown-item" href="{{ route('logout') }}" style="color: rgb(241, 200, 228)"
@@ -71,7 +71,7 @@
                                 </div>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('user.reservedrides') }}"><img src="{{ asset('build/assets/icons/cart-check-fill.svg') }}" alt="Shopping Cart" id="icon">  {{ __('Trajets') }}</a>
+                                <a class="nav-link" href="{{ route('user.reservedrides') }}"><img src="{{ asset('assets/icons/cart-check-fill.svg') }}" alt="Shopping Cart" id="icon">  {{ __('Trajets') }}</a>
                             </li>
                         @endguest
                     </ul>

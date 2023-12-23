@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('Style')
-    <link rel="stylesheet" href="{{ asset('build/assets/FrontEnd/style.css') }}">
+ <link rel="stylesheet" href="{{ asset('assets/FrontEnd/style.css') }}">
 @endsection
 @section('content')
 <!-- Page disgn  -->
@@ -13,7 +13,7 @@
                         {{ __('CarPooling') }}<br />
                         <span style="color: hsl(218, 81%, 75%)"> {{ __('Share rides and save money') }}</span>
                     </h1>
-                    <img src="{{ asset("build/assets/img/loginimg.png") }}" alt="vector1">
+                    <img src="{{ asset("assets/img/loginimg.png") }}" alt="vector1">
                 </div>
                 <div class="col-lg-6 mb-3 mb-lg-0 position-relative">
                     <!-- Background shapes -->
