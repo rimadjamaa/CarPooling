@@ -51,7 +51,10 @@ class User extends Authenticatable
         return isset($roles[$value]) ? $roles[$value] : 'unknown';
     }
 
-
+    public function poolings()
+    {
+        return $this->hasMany(Pooling::class, 'user_id');
+    }
 
 
 }

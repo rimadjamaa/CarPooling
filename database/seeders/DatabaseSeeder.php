@@ -19,16 +19,19 @@ class DatabaseSeeder extends Seeder
             'name' => 'Test User',
             'email' => 'test@example.com',
             'password' => Hash::make('12345678'),
+            'role' => 0,
         ]);
         DB::table('users')->insert([
             'name' => 'Admin',
             'email' => 'admin@admin.com',
             'password' => Hash::make('12345678'),
+            'role' => 1,
         ]);
         DB::table('users')->insert([
             'name' => 'Test driver',
             'email' => 'testdriver@example.com',
             'password' => Hash::make('12345678'),
+            'role' => 2,
         ]);
     }
 }

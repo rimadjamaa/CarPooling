@@ -24,8 +24,8 @@
                         <div class="card-body px-4 py-4 px-md-5">
                         <!-- Sign Up Form -->
                             <div id="signup" class="tab-content signup">
-                                <h1 class="display-6">{{ __('Sign Up') }}</h1>
-                                <form method="POST" action="{{ route('register') }}">
+                                <form method="POST" action="{{ route('register') }}" class="text-center">
+                                    <h1 class="display-6" style="color: rgb(92, 18, 107); font-size:30px;font-weight:bolder">{{ __('Sign Up') }}</h1>
                                     @csrf
                                     <div class="row">
                                         <!-- First Name input -->
@@ -83,6 +83,18 @@
                                         @enderror
                                     </div>
 
+                                    {{-- Gender input  --}}
+                                    <div class="form-outline mb-4">
+                                        <select class="form-control" id="gender" name="gender" required>
+                                            <option value="femme" {{ old('gender') == 'femme' ? 'selected' : '' }}>Femme</option>
+                                            <option value="homme" {{ old('gender') == 'homme' ? 'selected' : '' }}>Homme</option>
+                                        </select>
+                                        @error('gender')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+
+
                                     <!-- Password input -->
                                     <div class="form-outline mb-4">
                                         <input type="password" id="form3Example6" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="Password"/>
@@ -93,28 +105,33 @@
                                         @enderror
 
                                         <!-- Role selection labels with increased width and height in the same line -->
-                                        <div class="mb-2">
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" value="driver" id="roleDriver" name="role">
-                                                <label class="form-check-label btn custom-label" for="roleDriver">
-                                                    {{ __('Driver') }}
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <div class="mb-2">
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input " type="radio" value="consumer" id="roleConsumer" name="role">
-                                                <label class="form-check-label btn custom-label" for="roleConsumer">
-                                                    {{ __('Consumer') }}
-                                                </label>
-                                            </div>
+                                        <br>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input @error('role') is-invalid @enderror" type="radio" name="role" id="role1" value="driver">
+                                            <label class="form-check-label" for="role1">Driver</label>
+                                            @error('role')
+                                                <span class="helper-text" data-error="wrong" data-success="right">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
                                         </div>
 
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input @error('role') is-invalid @enderror" type="radio" name="role" id="role2" value="client" checked>
+                                            <label class="form-check-label" for="role2">Client</label>
+                                            @error('role')
+                                                <span class="helper-text" data-error="wrong" data-success="right">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+                                        <br><br>
                                         <!-- Submit button -->
-                                        <button type="submit" class="btn btn-primary btn-block mb-4">
+                                        <button type="submit" style="background-color: #aa51a5;border:none" class="btn btn-primary btn-block mb-4 col-10">
                                             {{ __('Sign up') }}
                                         </button>
-                                        <p>{{ __('Already have an account?') }} <a href="{{ route('login') }}" class="tab-link">{{ __('Login') }}</a></p>
+                                        <br>
+                                        <p style="color: blue ">{{ __('Already have an account?') }} <a style="color:#aa51a5;font-weight:bold" href="{{ route('login') }}" class="tab-link">{{ __('Login') }}</a></p>
                                     </div>
                                 </form>
                             </div>

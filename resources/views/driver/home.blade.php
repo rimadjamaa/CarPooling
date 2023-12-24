@@ -28,7 +28,7 @@
             <input type="text" class="form-control" id="departureTime" placeholder="Ex: 08:00 AM">
         </div>
         <div class="col-md-6">
-            <label for="numSeats" class="form-label">Nombre de Places Disponibles</label>
+            <label for="numSeats" class="form-label">Nombre des Places</label>
             <input type="number" class="form-control" id="numSeats" placeholder="Ex: 3">
         </div>
         <div class="col-md-6">
@@ -48,7 +48,7 @@
             </select>
         </div>
         <div class="col-md-6">
-            <label class="form-check-label">Heure de Retour</label>
+            <label class="form-check-label">Heure de Retour (estimer)</label>
             <input type="text" class="form-control" id="returnTime" placeholder="Ex: 06:00 PM">
         </div>
         <div class="col-md-6">
