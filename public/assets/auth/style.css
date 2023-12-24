@@ -7,6 +7,7 @@ body {
     color: #212529;
     text-align: left;
     background-color: #fff;
+
 }
 .background-radial-gradient {
     width: 100%;
@@ -42,15 +43,13 @@ body {
     background: radial-gradient(#44006b, #ad1fff);
     overflow: hidden;
 }
-
 .bg-glass {
     background-color: hsla(0, 0%, 100%, 0.9) !important;
     backdrop-filter: saturate(200%) blur(25px);
+    margin:40px ;
 }
 
-.tab-content {
-    display: none;
-}
+
 
 .tab-content:target {
     display: block;
@@ -92,10 +91,6 @@ body {
     text-decoration: underline;
 }
 
-.tab-content {
-    display: none;
-}
-
 .tab-content:target {
     display: block;
 }
@@ -130,6 +125,15 @@ body {
 
 
 .custom-label {
-    width: 150px;
-    height: 50px;
+    width: auto;
+    height: auto;
+    font-size: 15px;
+    padding-left: 10px;
+}
+
+p{
+    color: blue !important;
+    width: auto;
+    height: auto;
+    font-size: 15px;
 }
