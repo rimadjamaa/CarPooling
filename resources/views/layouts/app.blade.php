@@ -18,8 +18,8 @@
     @yield('Style')
 
 
-    <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    <!-- Scripts 'resources/sass/app.scss',-->
+    @vite(['resources/sass/app.scss','resources/js/app.js'])
 </head>
 <body onload="getLocation();">
     <div id="app">

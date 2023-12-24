@@ -109,7 +109,6 @@ body {
     background-color: #3d5861;
     border-color: #117a8b;
 }
-
 .btn-outline-primary {
     color: #777d83;
     background-color: #ffffff;
@@ -121,18 +120,16 @@ body {
     background-color: #aa51a5;
     border-color: #aa51a5;
 }
-.visually-hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    padding: 0;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    border: 0;
+/* Custom styles */
+.custom-btn {
+    color: #fff;
+    background-color: #3d5861;
+    border-color: #117a8b;
+    width: 100%;
 }
 
+
 .custom-label {
-    width: 100px;
+    width: 150px;
     height: 50px;
 }
