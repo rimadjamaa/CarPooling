@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('Style')
-    <link rel="stylesheet" href="{{ asset('assets/FrontEnd/RideSearche.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/driver/RideSearche.css') }}">
 @endsection
 
 @section('content')

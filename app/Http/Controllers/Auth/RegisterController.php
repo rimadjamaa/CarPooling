@@ -79,6 +79,5 @@ class RegisterController extends Controller
             'phone_number' => $data['phoneNumber'],
             'role' => $data['role'] == 'driver' ? 2 : 0,
         ]);
-
     }
 }

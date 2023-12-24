@@ -27,8 +27,8 @@
                          <!-- Sign Up Form -->
                             <div id="signup" class="tab-content signup">
                                 <form method="POST" action="{{ route('register') }}" class="text-center">
-                                    <h1 class="display-6" style="color: rgb(92, 18, 107); font-size:30px;font-weight:bolder">{{ __('Sign Up') }}</h1>
                                     @csrf
+                                    <h1 class="display-6" style="color: rgb(92, 18, 107); font-size:30px;font-weight:bolder">{{ __('Sign Up') }}</h1>
                                     <div class="row">
                                         <!-- First Name input -->
                                         <div class="col-md-6 mb-2">
