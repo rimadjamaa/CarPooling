@@ -1,19 +1,19 @@
 @extends('layouts.app')
 @section('Style')
-    <link rel="stylesheet" href="{{ asset("assets/FrontEnd/style.css") }}">
+    <link rel="stylesheet" href="{{ asset('assets/auth/style.css') }}">
 @endsection
 @section('content')
  <!-- Page disgn  -->
 <div class="row">
-    <section class="background-radial-gradient overflow-hidden" style="height: 100vh;">
+    <section class="background-radial-gradient overflow-hidden" style="height: 87vh;">
         <div class="container text-center text-lg-start">
             <div class="row gx-lg-5 align-items-center">
                 <div class="col-lg-6 mb-5 mb-lg-0" style="z-index: 10">
-                    <h1 class="mt-2 display-5 fw-bold ls-tight animate__animated animate__fadeInUp" id="carPoolingHeading" style="color: hsl(218, 81%, 95%)">
+                    <h1 class="mt-2 fs-1 display-5 fw-bold ls-tight animate__animated animate__fadeInUp" id="carPoolingHeading" style="color: hsl(218, 81%, 95%)">
                         {{ __('CarPooling') }}<br />
                         <span style="color: hsl(218, 81%, 75%)"> {{ __('Share rides and save money') }}</span>
                     </h1>
-                    <img src="{{ asset("assets/img/loginimg.png") }}" alt="vector1">
+                    <img src="{{ asset('assets/img/loginimg.png') }}" alt="vector1" width="70%" height="70%">
                 </div>
                 <div class="col-lg-6 mb-3 mb-lg-0 position-relative">
                     <!-- Background shapes -->
@@ -65,7 +65,7 @@
     </section>
 </div>
 
-@endsection
+
 @section('scripte')
 <script>
 // function to set the default form on page load
@@ -79,4 +79,5 @@
         $('#carPoolingHeading').removeClass('d-none').hide().addClass('animate__fadeInUp').fadeIn(1000);
     });
 </script>
+@endsection
 @endsection

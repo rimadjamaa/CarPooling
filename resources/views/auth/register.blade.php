@@ -1,19 +1,20 @@
-@extends('layouts.app')
+'@extends('layouts.app')
 @section('Style')
- <link rel="stylesheet" href="{{ asset('assets/FrontEnd/style.css') }}">
+ <link rel="stylesheet" href="{{ asset('assets/auth/style.css') }}">
+
 @endsection
 @section('content')
 <!-- Page disgn  -->
 <div class="row">
-    <section class="background-radial-gradient overflow-hidden" >
+    <section class="background-radial-gradient overflow-hidden" style="height: 87vh;" >
         <div class="container text-center text-lg-start">
             <div class="row gx-lg-5 align-items-center">
                 <div class="col-lg-6 mb-5 mb-lg-0" style="z-index: 10">
-                    <h1 class="mt-2 display-5 fw-bold ls-tight animate__animated animate__fadeInUp" id="carPoolingHeading" style="color: hsl(218, 81%, 95%)">
+                <h1 class="mt-2 fs-1 display-5 fw-bold ls-tight animate__animated animate__fadeInUp" id="carPoolingHeading" style="color: hsl(218, 81%, 95%)">
                         {{ __('CarPooling') }}<br />
                         <span style="color: hsl(218, 81%, 75%)"> {{ __('Share rides and save money') }}</span>
                     </h1>
-                    <img src="{{ asset("assets/img/loginimg.png") }}" alt="vector1">
+                    <img src="{{ asset('assets/img/loginimg.png') }}" alt="vector1" width="70%" height="70%">
                 </div>
                 <div class="col-lg-6 mb-3 mb-lg-0 position-relative">
                     <!-- Background shapes -->
@@ -93,28 +94,29 @@
                                         @enderror
 
                                         <!-- Role selection labels with increased width and height in the same line -->
-                                        <div class="mb-2">
+                                        <div class="mb-4">
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input" type="radio" value="driver" id="roleDriver" name="role">
-                                                <label class="form-check-label btn custom-label" for="roleDriver">
+                                                <label class="form-check-label btn custom-label btn-outline-primary" for="roleDriver">
                                                     {{ __('Driver') }}
                                                 </label>
                                             </div>
-                                        </div>
-                                        <div class="mb-2">
                                             <div class="form-check form-check-inline">
-                                                <input class="form-check-input " type="radio" value="consumer" id="roleConsumer" name="role">
-                                                <label class="form-check-label btn custom-label" for="roleConsumer">
+                                                <input class="form-check-input" type="radio" value="consumer" id="roleConsumer" name="role">
+                                                <label class="form-check-label btn custom-label btn-outline-primary" for="roleConsumer">
                                                     {{ __('Consumer') }}
                                                 </label>
                                             </div>
                                         </div>
-
                                         <!-- Submit button -->
-                                        <button type="submit" class="btn btn-primary btn-block mb-4">
-                                            {{ __('Sign up') }}
-                                        </button>
-                                        <p>{{ __('Already have an account?') }} <a href="{{ route('login') }}" class="tab-link">{{ __('Login') }}</a></p>
+                                    <button type="submit" class="btn btn-block mb-4" style="color: #fff; background-color: #3d5861; border-color: #117a8b; width: 100%;">
+                                        {{ __('Sign up') }}
+                                    </button>
+
+                                        <h6>
+                                            {{ __('  Already have an account?') }} 
+                                            <a href="{{ route('login') }}" class="tab-link">{{ __('Login') }}</a>
+                                        </h6>
                                     </div>
                                 </form>
                             </div>
