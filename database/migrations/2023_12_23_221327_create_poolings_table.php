@@ -11,8 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pooling', function (Blueprint $table) {
+        Schema::create('poolings', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
             $table->string('depart');
             $table->string('destination');
             $table->date('time_depart');
@@ -25,7 +26,8 @@ return new class extends Migration
             $table->integer('bagage_size');
             $table->timestamps();
 
-            $table->foreignId('id_user')->constrained('users')->onDelete('cascade');
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
@@ -34,6 +36,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('pooling');
+        Schema::dropIfExists('poolings');
     }
 };

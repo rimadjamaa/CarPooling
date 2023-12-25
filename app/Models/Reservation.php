@@ -16,6 +16,6 @@ class Reservation extends Model
 
     public function pooling()
     {
-        return $this->belongsTo(pooling::class);
+        return $this->belongsTo(Pooling::class);
     }
 }

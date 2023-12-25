@@ -57,7 +57,7 @@
                             <li class="nav-item dropdown">
 
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    <img src="{{ asset('assets/icons/person-circle.svg') }}" alt="Shopping Cart" id="icon">  {{ Auth::user()->name }}
+                                    <img src="{{ asset('assets/icons/person-circle.svg') }}" alt="Shopping Cart" id="icon">  {{ Auth::user()->firstname }}
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown" style="background-color: #ec547a;}">
                                     <a class="dropdown-item" href="{{ route('logout') }}" style="color: rgb(241, 200, 228)"
@@ -71,9 +71,20 @@
                                     </form>
                                 </div>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('user.reservedrides') }}"><img src="{{ asset('assets/icons/cart-check-fill.svg') }}" alt="Shopping Cart" id="icon">  {{ __('Trajets') }}</a>
-                            </li>
+                            @if (Auth::user()->role == 'driver')
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('driver.rides', ['idDriver' => Auth::user()->id]) }}"><img src="{{ asset('assets/icons/cart-check-fill.svg') }}" alt="Shopping Cart" id="icon">  {{ __('Trajets') }}</a>
+                                </li>
+                            @elseif (Auth::user()->role == 'admin')
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('admin.rides') }}"><img src="{{ asset('assets/icons/cart-check-fill.svg') }}" alt="Shopping Cart" id="icon">  {{ __('Trajets') }}</a>
+                                </li>
+                            @else
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('user.reservedrides') }}"><img src="{{ asset('assets/icons/cart-check-fill.svg') }}" alt="Shopping Cart" id="icon">  {{ __('Trajets') }}</a>
+                                </li>
+                            @endif
+
                         @endguest
                     </ul>
                 </div>

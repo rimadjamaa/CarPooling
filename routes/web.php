@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -33,8 +34,10 @@ Route::middleware(['auth','role:user'])->group(function()
 Route::middleware(['auth','role:driver'])->group(function()
 {
     Route::get("/driver/home",[HomeController::class, 'driverHome'])->name("driver.home");
-    // Route::post("/driver/store",[RideController::class, 'store'])->name("store.ride");
-    Route::match(['get', 'post'], 'driver/store', 'RideController@store')->name("store.ride");
+    Route::post("/driver/store",[RideController::class, 'store'])->name("store.ride");
+    Route::get("/driver/rides/{idDriver}",[RideController::class, 'show'])->name("driver.rides");
+
+
 });
 
 
@@ -43,4 +46,5 @@ Route::middleware(['auth','role:driver'])->group(function()
 Route::middleware(['auth','role:admin'])->group(function()
 {
     Route::get("/admin/home",[HomeController::class, 'adminHome'])->name("admin.home");
+    Route::get("/admin/rides",[AdminController::class, 'index'])->name("admin.rides");
 });

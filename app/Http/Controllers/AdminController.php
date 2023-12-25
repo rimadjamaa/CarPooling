@@ -2,18 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Pooling;
 use Illuminate\Http\Request;
 
-class RideController extends Controller
+class AdminController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-
-       //
+        return view('admin.rides');
     }
 
     /**
@@ -29,29 +27,15 @@ class RideController extends Controller
      */
     public function store(Request $request)
     {
-        $ride=new Pooling();
-        $ride->depart=$request->Depart;
-        $ride->destination=$request->Destination;
-        $ride->longletude=$request->Longlitude;
-        $ride->latitude=$request->Latitude;
-        $ride->time_depart=$request->Depart_time;
-        $ride->nb_place_max=$request->Nb_Place;
-        $ride->bagage_size=$request->Bagage_size;
-        $ride->gender=$request->Gender;
-        $ride->price=$request->Price;
-        $ride->user_id=3;
-
-        $ride->save();
-        return redirect()->route('driver.home')->with('success', 'Proposition valider');
-     }
+        //
+    }
 
     /**
      * Display the specified resource.
      */
     public function show(string $id)
     {
-        $rides = Pooling::where('user_id', $id)->get();
-        return view('driver.rides',compact('rides'));
+        //
     }
 
     /**
