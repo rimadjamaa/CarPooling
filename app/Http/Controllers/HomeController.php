@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\Reservation;
+use App\Models\User;
 class HomeController extends Controller
 {
     /**
@@ -35,6 +36,8 @@ class HomeController extends Controller
     }
     public function adminHome()
     {
-        return view('admin.home');
+        $reservations = Reservation::with('pooling','user')->get();
+        $users = User::all();
+        return view('admin.home',compact('reservations','users'));
     }
 }

@@ -39,12 +39,10 @@ Route::middleware(['auth','role:driver'])->group(function()
 
 
 });
-
-
-
 // Route Admin
 Route::middleware(['auth','role:admin'])->group(function()
 {
     Route::get("/admin/home",[HomeController::class, 'adminHome'])->name("admin.home");
     Route::get("/admin/rides",[AdminController::class, 'index'])->name("admin.rides");
+    Route::get("/admin/editride/{id_reservation}",[AdminController::class, 'edit'])->name("admin.RideEdit");
 });

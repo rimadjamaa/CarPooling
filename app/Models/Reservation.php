@@ -11,11 +11,11 @@ class Reservation extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class,'user_id');
     }
 
     public function pooling()
     {
-        return $this->belongsTo(Pooling::class);
+        return $this->belongsTo(Pooling::class,'pooling_id');
     }
 }
