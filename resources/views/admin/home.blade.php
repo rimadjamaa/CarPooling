@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('Style')
-    <link rel="stylesheet" href="{{ asset('assets/FrontEnd/RideSearche.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/admin/RideSearche.css') }}">
     <style>
         /* Ajoutez vos styles personnalisés ici */
         .ride-list {
@@ -45,6 +45,7 @@
             padding: 8px 12px;
             border-radius: 5px;
             cursor: pointer;
+            font-size:15px;
         }
 
         .modify-button:hover,
@@ -76,7 +77,7 @@
                 <p>Heure de Départ: 08:00 AM</p>
                 <p>Nombre de Places Disponibles: 3</p>
                 <div> 
-                    <button class="modify-button" >Modifier</button>
+                <button class="modify-button"><a href="{{ route('admin.RideModify') }}">Modifier</a></button>
                     <button class="delete-button">Supprimer</button>
                 </div>
                 <!-- Ajoutez d'autres détails du trajet ici -->
