@@ -24,8 +24,8 @@
                         <div class="card-body px-4 py-4 px-md-5">
                             <!-- Login Form -->
                             <div id="login" class="tab-content login">
-                                <h1 class="display-6">{{ __('Login') }}</h1>
-                                <form method="POST" action="{{ route('login') }}">
+                                <form method="POST" action="{{ route('login') }}" class="text-center">
+                                    <h1 class="display-6" style="color: rgb(92, 18, 107); font-size:30px;font-weight:bolder">{{ __('Login') }}</h1>
                                     @csrf
                                     <div class="form-outline mb-4">
                                         <input type="email" id="form3Example3" class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}" name="email" placeholder="Email address" value="{{ old('email') }}" required autofocus>
@@ -44,17 +44,16 @@
                                             </span>
                                         @endif
                                     </div>
-                                    <br>
                                     <p>
                                         <label>
                                             <input type="checkbox" name="remember" class="filled-in" {{ old('remember') ? 'checked' : '' }} />
                                             <span>{{ __('Remember Me') }}</span>
                                         </label>
                                     </p>
-                                    <br>
+
                                     <!-- Submit button -->
-                                    <button type="submit" class="btn btn-primary btn-block mb-4"> {{ __('Login') }} </button>
-                                    <p>{{ __('Do not have an account?') }} <a href="{{ route('register') }}" class="tab-link">{{ __('Sign up') }}</a></p>
+                                    <button type="submit" style="background-color: #aa51a5;border:none" class="btn btn-primary btn-block mb-4 col-10"> {{ __('Login') }} </button>
+                                    <p>{{ __('Do not have an account?') }} <a style="color:#aa51a5;font-weight:bold" href="{{ route('register') }}" class="tab-link">{{ __('Sign up') }}</a></p>
                                 </form>
                             </div>
                         </div>
@@ -64,20 +63,11 @@
         </div>
     </section>
 </div>
-
+@endsection
 
 @section('scripte')
 <script>
-// function to set the default form on page load
-    document.addEventListener("DOMContentLoaded", function () {
-        document.location.hash = document.location.hash || 'login';
-    });
 
-// title animation
-    $(document).ready(function() {
-            // Show the heading with a fade-in and upward movement effect
-        $('#carPoolingHeading').removeClass('d-none').hide().addClass('animate__fadeInUp').fadeIn(1000);
-    });
 </script>
 @endsection
-@endsection
+

@@ -16,19 +16,34 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
 
         DB::table('users')->insert([
-            'name' => 'Test User',
+            'firstname' => 'Test',
+            'lastname' => 'User',
             'email' => 'test@example.com',
             'password' => Hash::make('12345678'),
+            'genre'=>'femme',
+            'phone_number'=>12334555,
+            'matricule'=>15,
+            'role' => 0,
         ]);
         DB::table('users')->insert([
-            'name' => 'Admin',
+            'firstname' => 'Admin',
+            'lastname' => 'Admin',
             'email' => 'admin@admin.com',
             'password' => Hash::make('12345678'),
+            'genre'=>'femme',
+            'phone_number'=>12334555,
+            'matricule'=>154,
+            'role' => 1,
         ]);
         DB::table('users')->insert([
-            'name' => 'Test driver',
-            'email' => 'testdriver@example.com',
+            'firstname' => 'Driver',
+            'lastname' => 'Driver',
+            'email' => 'driver@example.com',
             'password' => Hash::make('12345678'),
+            'genre'=>'femme',
+            'phone_number'=>125,
+            'matricule'=>13,
+            'role' => 2,
         ]);
     }
 }

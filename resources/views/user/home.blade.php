@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('Style')
-    <link rel="stylesheet" href="{{ asset('assets/FrontEnd/RideSearche.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/user/RideSearche.css') }}">
 @endsection
 
 @section('content')
@@ -48,15 +48,6 @@
                 <option value="female">Femme</option>
             </select>
         </div>
-        <div class="col-md-6">
-            <label class="form-check-label">Heure de Départ Flexible</label>
-            <input type="checkbox" class="form-check-input" id="flexibleDeparture">
-        </div>
-        <div class="col-md-6">
-            <label class="form-check-label">Accepter les Détours</label>
-            <input type="checkbox" class="form-check-input" id="acceptDetours">
-        </div>
-
         <div class="col-12 mt-4">
             <button type="submit" class="custom-btn">Rechercher</button>
         </div>

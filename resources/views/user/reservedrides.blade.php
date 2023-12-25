@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('Style')
-    <link rel="stylesheet" href="{{ asset('assets/FrontEnd/RideSearche.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/user/RideSearche.css') }}">
     <style>
         /* Ajoutez vos styles personnalisés ici */
         .ride-list {
@@ -65,6 +65,8 @@
             cursor: pointer;
             margin: 10px 0px;
             width: 30%;
+            height: auto;
+            font-size: 15px;
         }
     </style>
 @endsection

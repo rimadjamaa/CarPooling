@@ -20,11 +20,15 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'firstname',
+        'lastname',
         'email',
         'password',
+        'matricule',
+        'gender',
+        'phone_number',
+        'role',
     ];
-
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -51,7 +55,10 @@ class User extends Authenticatable
         return isset($roles[$value]) ? $roles[$value] : 'unknown';
     }
 
-
+    public function poolings()
+    {
+        return $this->hasMany(Pooling::class, 'user_id');
+    }
 
 
 }
