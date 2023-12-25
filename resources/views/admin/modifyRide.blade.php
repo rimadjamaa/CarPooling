@@ -1,17 +1,16 @@
 @extends('layouts.app')
 @section('Style')
-    <link rel="stylesheet" href="{{ asset('assets/FrontEnd/RideSearche.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/admin/RideSearche.css') }}">
 @endsection
 
 @section('content')
-      <link rel="stylesheet" href="{{ asset('assets/FrontEnd/RideSearche.css') }}">
       <div class="container col-8 custom-card">
         <h2 class="mt-3 text-center text-center custom-title">Modification de trajet </h2>
         {{-- this form will redirect to the methode of search which will redirect to the view user.rides with the reasult  --}}
         <form class="myform row g-3 mt-3">
             <div class="col-md-6">
                 <label for="departureLocation" class="form-label">Lieu de Départ</label>
-                <input type="text" class="form-control" id="departureLocation" placeholder="Ex: Ville de départ " value="Ville A">
+                <input type="text" class="form-control" id="departureLocation" placeholder="Ex: Ville de départ " value="{{ $rides->depart}}">
             </div>
             <div class="col-md-6">
                 <label for="destination" class="form-label">Destination</label>
