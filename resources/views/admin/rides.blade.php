@@ -1,96 +1,103 @@
 @extends('layouts.app')
+
 @section('Style')
-    <link rel="stylesheet" href="{{ asset('assets/FrontEnd/RideSearche.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/driver/RideSearche.css') }}">
+    <style>
+        /* Ajoutez vos styles personnalisés ici */
+        .ride-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .ride-item {
+            position: relative;
+            display: grid;
+            column-gap: 20px;
+            grid-template-columns: 40% 60% ;
+            border: 1px solid #e5e5e5;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .ride-item:hover {
+            transform: scale(1.02);
+        }
+
+        .ride-item h3 {
+            margin-bottom: 10px;
+            color: black;
+            font-weight: bolder;
+        }
+
+        .ride-item p {
+            margin: 0;
+            font-size: 15px;
+            color: #666;
+            display: block;
+        }
+        .reserve-button {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background-color: #e9426a;
+            color: #fff;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px 0px;
+            width: 30%;
+        }
+
+        .reserve-button:hover {
+            background-color: #792174;
+        }
+        .ifarme-container{
+
+            border: 2px solid #792174;
+            width: 90%;
+        }
+        iframe {
+            width: 100%; /* Set the width as needed */
+            height: 100%; /* Set the height as needed */
+        }
+    </style>
 @endsection
 
 @section('content')
-      <link rel="stylesheet" href="{{ asset('assets/FrontEnd/RideSearche.css') }}">
-      <div class="container col-8 custom-card">
-        <h2 class="mt-3 text-center text-center custom-title">Modification de trajet </h2>
-        {{-- this form will redirect to the methode of search which will redirect to the view user.rides with the reasult  --}}
-        <form class="myform row g-3 mt-3">
-            <div class="col-md-6">
-                <label for="departureLocation" class="form-label">Lieu de Départ</label>
-                <input type="text" class="form-control" id="departureLocation" placeholder="Ex: Ville de départ " value="Ville A">
-            </div>
-            <div class="col-md-6">
-                <label for="destination" class="form-label">Destination</label>
-                <input type="text" class="form-control" id="destination" placeholder="Ex: Ville de destination" value="Ville B">
-            </div>
-            <div class="col-md-6">
-                <label for="departureLocation" class="form-label">Longlitude</label>
-                <input type="text" class="form-control" id="longlitude" placeholder="Votre Longlitude dans maps" value="longlitude">
-            </div>
-            <div class="col-md-6">
-                <label for="departureLocation" class="form-label">Latitude</label>
-                <input type="text" class="form-control" name="latitude" id="latitude" placeholder="Votre Latitude dans maps"value="latitude">
-            </div>
-            <div class="col-md-6">
-                <label for="departureTime" class="form-label">Heure de Départ</label>
-                <input type="text" class="form-control" id="departureTime" placeholder="Ex: 08:00 AM"value="10:30 AM">
-            </div>
-            <div class="col-md-6">
-                <label for="numSeats" class="form-label">Nombre de Places</label>
-                <input type="number" class="form-control" id="numSeats" placeholder="Ex: 2"value="3">
-            </div>
-            <div class="col-md-6">
-                <label for="luggageSize" class="form-label">Taille des Bagages</label>
-                <select id="luggageSize" class="form-select">
-                    <option value="small">Petit</option>
-                    <option value="medium">Moyen</option>
-                    <option value="large">Grand</option>
-                </select>
-            </div>
-            <div class="col-md-6">
-                <label for="preferredGender" class="form-label">Genre Préféré des Co-Voyageurs</label>
-                <select id="preferredGender" class="form-select">
-                    <option value="any">Peu Importe</option>
-                    <option value="male">Homme</option>
-                    <option value="female">Femme</option>
-                </select>
-            </div>
-            <div class="col-md-6">
-                <label class="form-check-label">Heure de Départ Flexible</label>
-                <input type="checkbox" class="form-check-input" id="flexibleDeparture">
-            </div>
-            <div class="col-md-6">
-                <label class="form-check-label">Accepter les Détours</label>
-                <input type="checkbox" class="form-check-input" id="acceptDetours">
-            </div>
-    
-            <div class="col-12 mt-4">
-                <button type="submit" class="custom-btn">Enregistrer</button>
-            </div>
-        </form>
+    <br>
+    <div class="container col-8 ">
+        <h2 class="text-center text-center custom-title" style="margin-top: 50px;margin-bottom:20px">Les Trajets Proposer</h2>
+        <ul class="ride-list">
+        @foreach($reservations->groupBy('pooling_id') as $groupedReservations)
+                @php
+                    $firstReservation = $groupedReservations->first();
+                @endphp 
+                <li class="ride-item">
+                    <h3>Trajet {{ $firstReservation->pooling_id }}</h3>
+                    <p>Client(s): 
+                        @foreach ($groupedReservations as $reservation) 
+                            {{ $reservation->user->firstname }}
+                        @endforeach
+                    </p>
+                    <p>Conducteur: {{ $firstReservation->pooling->user->firstname }}</p>
+                    <p>Lieu de Départ: {{ $firstReservation->pooling->depart }}</p>
+                    <p>Destination: {{ $firstReservation->pooling->destination }}</p>
+                    <p>Heure de Départ: {{ $firstReservation->pooling->time_depart }}</p>
+                    <p>Nombre Max des Places : {{ $firstReservation->pooling->nb_place_max }}</p>
+                    <p>Nombre de Places Disponibles: {{ $firstReservation->pooling->nb_place_available }}</p>
+                    <div class="ifarme-container">
+                        <iframe src="https://www.google.com/maps?q={{ $ride->latitude }},{{ $ride->longletude }}&hl=es;z=14&output=embed"  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    <!-- Ajoutez d'autres détails du trajet ici -->
+                </li> 
+            @endforeach
+
+        </ul>
     </div>
 @endsection
-@section('scripte')
-<script type="text/javascript">
 
-        if (navigator.geolocation) {
-                // Demandez la géolocalisation à l'utilisateur
-                navigator.geolocation.getCurrentPosition(function (position) {
-                    var latitude = position.coords.latitude;
-                    var longitude = position.coords.longitude;
-
-                    // Affichez les coordonnées dans le paragraphe
-                    document.getElementById('latitude').value = 'Latitude: ' + latitude ;
-                    document.getElementById('longlitude').value = 'Longlitude: ' + longitude ;
-
-                    // Remplissez automatiquement le champ de lieu de départ
-                    var googleMapsLink = `https://www.google.com/maps?q=${latitude},${longitude}`;
-
-                    // Remplir automatiquement le champ de lieu de départ avec le lien Google Maps
-                    document.getElementById('departureLocation').value = googleMapsLink;
-                }, function (error) {
-                    console.error('Erreur de géolocalisation:', error.message);
-                    locationResult.textContent = 'Impossible d\'obtenir la géolocalisation.';
-                });
-
-        } else {
-            console.error('La géolocalisation n\'est pas prise en charge par ce navigateur.');
-            locationResult.textContent = 'La géolocalisation n\'est pas prise en charge par ce navigateur.';
-        }
-   
-</script>
-@endsection

@@ -71,14 +71,13 @@
             @foreach($reservations->groupBy('pooling_id') as $groupedReservations)
                 @php
                     $firstReservation = $groupedReservations->first();
-                @endphp
+                @endphp 
                 <li class="ride-item">
-                    <h3>Trajet {{ $firstReservation->pooling_id }}</h3>
+                    <h3>Trajet #{{ $firstReservation->pooling_id }}</h3>
                     <p>Client(s): 
                         @foreach ($groupedReservations as $reservation) 
-                            {{ $reservation->user->firstname }}
-                            {{-- You can add a separator here if needed --}}
-                        @endforeach 
+                        - {{ $reservation->user->id }} {{ $reservation->user->firstname }} 
+                        @endforeach
                     </p>
                     <p>Conducteur: {{ $firstReservation->pooling->user->firstname }}</p>
                     <p>Lieu de Départ: {{ $firstReservation->pooling->depart }}</p>
@@ -87,7 +86,7 @@
                     <p>Nombre Max des Places : {{ $firstReservation->pooling->nb_place_max }}</p>
                     <p>Nombre de Places Disponibles: {{ $firstReservation->pooling->nb_place_available }}</p>
                     <div> 
-                        <button class="modify-button"><a href="{{ route('admin.RideEdit', ['id_reservation' => $firstReservation->pooling_id]) }}">Modifier</a></button>
+                        <button class="modify-button"><a class="custom-link" href="{{ route('admin.RideEdit', ['id_reservation' => $firstReservation->pooling_id]) }}">Modifier</a></button>
                         <button class="delete-button">Supprimer</button>
 
                     </div>
