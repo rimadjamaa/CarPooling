@@ -14,5 +14,8 @@ class Pooling extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
 
-
+    public function reservations()
+    {
+        return $this->hasMany(Reservation::class, 'pooling_id');
+    }
 }

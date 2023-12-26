@@ -33,7 +33,7 @@
         </div>
         <div class="col-md-6">
             <label for="departureTime" class="form-label">Heure de Départ</label>
-            <input type="text" name="Depart_time" class="form-control" id="departureTime" placeholder="Ex: 12/10/21 9:00" pattern="\d{2}/\d{2}/\d{4} \d{1,2}:\d{2}" title="Format attendu: JJ/MM/AAAA hh:mm" required>
+            <input type="datetime-local" name="Depart_time" class="form-control" id="departureTime" required>
         </div>
         <div class="col-md-6">
             <label for="numSeats" class="form-label">Nombre des Places</label>
@@ -57,7 +57,7 @@
         </div>
         <div class="col-md-6">
             <label for="returnTime" class="form-label">Heure de Retour (estimer)</label>
-            <input type="text" name="return_time" class="form-control" id="returnTime" placeholder="Ex: 12/10/21 9:00" pattern="\d{2}/\d{2}/\d{4} \d{1,2}:\d{2}" title="Format attendu: JJ/MM/AAAA hh:mm" required>
+            <input type="datetime-local" name="Depart_time" class="form-control" id="departureTime" required>
         </div>
         <div class="col-md-6">
             <label for="price" class="form-label">Prix du Trajet</label>

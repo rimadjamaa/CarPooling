@@ -7,7 +7,7 @@
 <div class="container col-8 custom-card">
     <h2 class="mt-3 text-center text-center custom-title">Recherche de Trajet</h2>
     {{-- this form will redirect to the methode of search which will redirect to the view user.rides with the reasult  --}}
-    <form class="myform row g-3 mt-3">
+    <form method="GET" class="myform row g-3 mt-3">
         <div class="col-md-6">
             <label for="departureLocation" class="form-label">Lieu de Départ</label>
             <input type="text" class="form-control" id="departureLocation" placeholder="Ex: Ville de départ">

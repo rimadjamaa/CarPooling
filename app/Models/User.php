@@ -60,5 +60,8 @@ class User extends Authenticatable
         return $this->hasMany(Pooling::class, 'user_id');
     }
 
-
+    public function reservations()
+    {
+        return $this->hasMany(Reservation::class, 'user_id');
+    }
 }
