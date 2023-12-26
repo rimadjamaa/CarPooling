@@ -57,7 +57,12 @@
         </div>
         <div class="col-md-6">
             <label for="returnTime" class="form-label">Heure de Retour (estimer)</label>
+<<<<<<< HEAD
             <input type="datetime-local" name="Depart_time" class="form-control" id="departureTime" required>
+=======
+            <input type="datetime-local" name="return_time" class="form-control" id="returnTime" required>
+            
+>>>>>>> fd2e7db0a51d748526ef135fed4a84a569f4fe51
         </div>
         <div class="col-md-6">
             <label for="price" class="form-label">Prix du Trajet</label>

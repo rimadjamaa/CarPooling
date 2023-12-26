@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('Style')
-    <link rel="stylesheet" href="{{ asset('assets/FrontEnd/RideSearche.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/admin/RideSearche.css') }}">
     <style>
         /* Ajoutez vos styles personnalisés ici */
         .ride-list {
@@ -45,6 +45,7 @@
             padding: 8px 12px;
             border-radius: 5px;
             cursor: pointer;
+            font-size:15px;
         }
 
         .modify-button:hover,
@@ -65,50 +66,34 @@
 @section('content')
     <br>
     <div class="container col-8 ">
-        <h2 class="mt-3 text-center text-center custom-title">Liste des Trajets</h2>
+        <h2 class="mt-3 text-center text-center custom-title">Liste des Trajets Reservées </h2>
         <ul class="ride-list">
-            <li class="ride-item">
-                <h3>Trajet 1</h3>
-                <p>User: Rima </p>
-                <p>Driver: Ibrahim</p>
-                <p>Lieu de Départ: Ville A</p>
-                <p>Destination: Ville B</p>
-                <p>Heure de Départ: 08:00 AM</p>
-                <p>Nombre de Places Disponibles: 3</p>
-                <div> 
-                    <button class="modify-button" >Modifier</button>
-                    <button class="delete-button">Supprimer</button>
-                </div>
-                <!-- Ajoutez d'autres détails du trajet ici -->
-            </li>
-            <li class="ride-item">
-                <h3>Trajet 1</h3>
-                <p>User: Rima </p>
-                <p>Driver: Ibrahim</p>
-                <p>Lieu de Départ: Ville A</p>
-                <p>Destination: Ville B</p>
-                <p>Heure de Départ: 08:00 AM</p>
-                <p>Nombre de Places Disponibles: 3</p>
-                <div> 
-                    <button class="modify-button">Modifier</button>
-                    <button class="delete-button">Supprimer</button>
-                </div>
-                <!-- Ajoutez d'autres détails du trajet ici -->
-            </li>
-            <li class="ride-item">
-                <h3>Trajet 1</h3>
-                <p>User: Rima </p>
-                <p>Driver: Ibrahim</p>
-                <p>Lieu de Départ: Ville A</p>
-                <p>Destination: Ville B</p>
-                <p>Heure de Départ: 08:00 AM</p>
-                <p>Nombre de Places Disponibles: 3</p>
-                <div> 
-                    <button class="modify-button">Modifier</button>
-                    <button class="delete-button">Supprimer</button>
-                </div>
-                <!-- Ajoutez d'autres détails du trajet ici -->
-            </li>
+            @foreach($reservations->groupBy('pooling_id') as $groupedReservations)
+                @php
+                    $firstReservation = $groupedReservations->first();
+                @endphp
+                <li class="ride-item">
+                    <h3>Trajet {{ $firstReservation->pooling_id }}</h3>
+                    <p>Client(s): 
+                        @foreach ($groupedReservations as $reservation) 
+                            {{ $reservation->user->firstname }}
+                            {{-- You can add a separator here if needed --}}
+                        @endforeach 
+                    </p>
+                    <p>Conducteur: {{ $firstReservation->pooling->user->firstname }}</p>
+                    <p>Lieu de Départ: {{ $firstReservation->pooling->depart }}</p>
+                    <p>Destination: {{ $firstReservation->pooling->destination }}</p>
+                    <p>Heure de Départ: {{ $firstReservation->pooling->time_depart }}</p>
+                    <p>Nombre Max des Places : {{ $firstReservation->pooling->nb_place_max }}</p>
+                    <p>Nombre de Places Disponibles: {{ $firstReservation->pooling->nb_place_available }}</p>
+                    <div> 
+                        <button class="modify-button"><a href="{{ route('admin.RideEdit', ['id_reservation' => $firstReservation->pooling_id]) }}">Modifier</a></button>
+                        <button class="delete-button">Supprimer</button>
+
+                    </div>
+                    <!-- Ajoutez d'autres détails du trajet ici -->
+                </li> 
+            @endforeach
             <!-- Ajoutez plus de trajets au besoin -->
         </ul>
     </div>

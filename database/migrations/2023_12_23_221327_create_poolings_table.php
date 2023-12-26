@@ -13,17 +13,17 @@ return new class extends Migration
     {
         Schema::create('poolings', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->string('depart');
             $table->string('destination');
-            $table->date('time_depart');
-            $table->integer('nb_place_max');
-            $table->integer('nb_place_available');
-            $table->float('longletude');
-            $table->float('latitude');
-            $table->integer('price');
-            $table->enum('gender', ['homme', 'femme','peu importe'])->nullable();
-            $table->integer('bagage_size');
+            $table->datetime('time_depart');
+            $table->integer('nb_place_max')->nullable();
+            $table->integer('nb_place_available')->nullable();
+            $table->float('longletude')->nullable();
+            $table->float('latitude')->nullable();
+            $table->integer('price')->nullable();
+            $table->enum('gender', ['male', 'female','any'])->nullable();
+            $table->enum('bagage_size', ['small', 'medium','large'])->nullable();
             $table->timestamps();
 
 

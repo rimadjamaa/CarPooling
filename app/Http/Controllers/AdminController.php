@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Pooling;
 
 class AdminController extends Controller
 {
@@ -44,6 +45,10 @@ class AdminController extends Controller
     public function edit(string $id)
     {
         //
+        //$rides = Pooling::where('id',$id)->get();
+        $rides = Pooling::find($id);
+
+        return view('admin.modifyRide',compact('rides'));
     }
 
     /**

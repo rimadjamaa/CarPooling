@@ -29,6 +29,8 @@ Route::middleware(['auth','role:user'])->group(function()
     Route::get("/user/home",[HomeController::class, 'userHome'])->name("user.home");
     Route::get("/user/Rides",[UserController::class, 'ListesRides'])->name("user.rides");
     Route::get("/user/ReservedRides",[UserController::class, 'ReservedRides'])->name("user.reservedrides");
+    Route::get("/user/ridesearch",[RideController::class, 'search'])->name("user.ridesearch");
+    Route::get("/user/ridereserve/{id}{userid}",[RideController::class, 'reserve'])->name("user.ridereserve");
 });
 // Route Driver
 Route::middleware(['auth','role:driver'])->group(function()
@@ -39,12 +41,10 @@ Route::middleware(['auth','role:driver'])->group(function()
 
 
 });
-
-
-
 // Route Admin
 Route::middleware(['auth','role:admin'])->group(function()
 {
     Route::get("/admin/home",[HomeController::class, 'adminHome'])->name("admin.home");
     Route::get("/admin/rides",[AdminController::class, 'index'])->name("admin.rides");
+    Route::get("/admin/editride/{id_reservation}",[AdminController::class, 'edit'])->name("admin.RideEdit");
 });
