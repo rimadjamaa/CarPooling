@@ -51,3 +51,13 @@
         text-decoration: none;
         color: white;
     }
+    .alert{
+        font-size: 25px;
+        text-align: center;
+        font-weight: bold;
+        border:2px solid #e9426a!important;
+        background-color: rgb(236, 220, 220) !important;
+        color: #e9426a !important;
+        width: 50%;
+        margin: auto;
+    }

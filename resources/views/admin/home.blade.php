@@ -10,6 +10,9 @@
         }
         .ride-item {
             position: relative;
+            display: grid;
+            column-gap: 20px;
+            grid-template-columns: 50% 50% ;
             border: 1px solid #e5e5e5;
             border-radius: 10px;
             margin-bottom: 20px;
@@ -60,6 +63,15 @@
         .delete-button {
             right: 100px; /* Adjust as needed */
         }
+        .ifarme-container{
+        border: 2px solid #792174;
+        width: 90%;
+        }
+
+        iframe {
+        width: 100%; /* Set the width as needed */
+        height: 100%; /* Set the height as needed */
+        }
     </style>
 @endsection
 
@@ -73,23 +85,23 @@
                     $firstReservation = $groupedReservations->first();
                 @endphp 
                 <li class="ride-item">
-                    <h3>Trajet #{{ $firstReservation->pooling_id }}</h3>
-                    <p>Client(s): 
-                        @foreach ($groupedReservations as $reservation) 
-                        - {{ $reservation->user->id }} {{ $reservation->user->firstname }} 
-                        @endforeach
-                    </p>
-                    <p>Conducteur: {{ $firstReservation->pooling->user->firstname }}</p>
-                    <p>Lieu de Départ: {{ $firstReservation->pooling->depart }}</p>
-                    <p>Destination: {{ $firstReservation->pooling->destination }}</p>
-                    <p>Heure de Départ: {{ $firstReservation->pooling->time_depart }}</p>
-                    <p>Nombre Max des Places : {{ $firstReservation->pooling->nb_place_max }}</p>
-                    <p>Nombre de Places Disponibles: {{ $firstReservation->pooling->nb_place_available }}</p>
-                    <div> 
-                        <button class="modify-button"><a class="custom-link" href="{{ route('admin.RideEdit', ['id_reservation' => $firstReservation->pooling_id]) }}">Modifier</a></button>
-                        <button class="delete-button">Supprimer</button>
-
+                    <div class="grad-item" >
+                        <h3>Trajet #{{ $firstReservation->pooling_id }}</h3>
+                        <p>Client(s): 
+                            @foreach ($groupedReservations as $reservation) 
+                            - {{ $reservation->user->id }} {{ $reservation->user->firstname }} 
+                            @endforeach
+                        </p>
+                        <p>Conducteur: {{ $firstReservation->pooling->user->firstname }}</p>
+                        <p>Lieu de Départ: {{ $firstReservation->pooling->depart }}</p>
+                        <p>Destination: {{ $firstReservation->pooling->destination }}</p>
+                        <p>Heure de Départ: {{ $firstReservation->pooling->time_depart }}</p>
                     </div>
+                    <div> 
+                    <div class="ifarme-container">
+                        <iframe src="https://www.google.com/maps?q={{ $firstReservation->pooling->latitude }},{{ $firstReservation->pooling->longletude }}&hl=es;z=14&output=embed"  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
                     <!-- Ajoutez d'autres détails du trajet ici -->
                 </li> 
             @endforeach

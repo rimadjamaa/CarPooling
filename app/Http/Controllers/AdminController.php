@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Pooling;
-
+use App\Models\Reservation;
+use App\Models\User;
 class AdminController extends Controller
 {
     /**
@@ -12,7 +13,9 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin.rides');
+        $reservations = Pooling::all();
+        $users = User::all();
+        return view('admin.rides',compact('reservations','users'));
     }
 
     /**
@@ -44,19 +47,32 @@ class AdminController extends Controller
      */
     public function edit(string $id)
     {
-        //
-        //$rides = Pooling::where('id',$id)->get();
         $rides = Pooling::find($id);
-
-        return view('admin.modifyRide',compact('rides'));
+        $users = User::where('role', '=', 2)->get();
+        return view('admin.modifyRide',compact('rides','users'));
     }
 
     /**
      * Update the specified resource in storage.
+     * 
+
+     * 
+
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, string $id) 
     {
         //
+        $ride = Pooling::find($id);
+        $ride->depart=$request->departureLocation;
+        $ride->destination=$request->destination;
+        $ride->longletude=$request->longlitude;
+        $ride->latitude=$request->latitude;
+        $ride->time_depart=$request->departureTime;
+        $ride->nb_place_max=$request->numSeats;
+        $ride->price=$request->Prix;
+        $ride->user_id=$request->conducteur;
+        $ride->save();
+        return redirect()->route('admin.rides')->with('success', 'Trajet Modifier');
     }
 
     /**
