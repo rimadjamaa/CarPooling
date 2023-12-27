@@ -38,39 +38,15 @@
             color: #666;
             display: block;
         }
-        .modify-button,
-        .delete-button {
-            position: absolute;
-            bottom: 10px;
-            background-color: #e9426a;
-            color: #fff;
-            border: none;
-            padding: 8px 12px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size:15px;
-        }
-
-        .modify-button:hover,
-        .delete-button:hover {
-            background-color: #792174;
-        }
-
-        .modify-button {
-            right: 10px;
-        }
-
-        .delete-button {
-            right: 100px; /* Adjust as needed */
-        }
         .ifarme-container{
         border: 2px solid #792174;
         width: 90%;
+        margin-top:15px;
         }
 
         iframe {
-        width: 100%; /* Set the width as needed */
-        height: 100%; /* Set the height as needed */
+        width: 100%; 
+        height: 100%; 
         }
     </style>
 @endsection
@@ -96,6 +72,7 @@
                         <p>Lieu de Départ: {{ $firstReservation->pooling->depart }}</p>
                         <p>Destination: {{ $firstReservation->pooling->destination }}</p>
                         <p>Heure de Départ: {{ $firstReservation->pooling->time_depart }}</p>
+                        <p>Prix: {{ $firstReservation->pooling->price  }} DA </p>
                     </div>
                     <div> 
                     <div class="ifarme-container">

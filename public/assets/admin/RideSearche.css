@@ -21,6 +21,10 @@
     .form-select{
         border: 1px solid #e39bd4 !important;
     }
+    label{
+        font-size: 15px;
+    }
+    
     .custom-title {
         color: #e9426a;
         font-size: 2rem;
@@ -51,13 +55,31 @@
         text-decoration: none;
         color: white;
     }
-    .alert{
-        font-size: 25px;
+    .alert {
+        font-size: 18px;
         text-align: center;
         font-weight: bold;
-        border:2px solid #e9426a!important;
-        background-color: rgb(236, 220, 220) !important;
-        color: #e9426a !important;
-        width: 50%;
-        margin: auto;
+        border: 2px solid #af4c82 !important; 
+        background-color: #f0d8f0 !important; 
+        color: #bd135d !important; 
+        width: 20%;
+        margin: 20px 0 20px 20px; 
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        animation: fadeOut 5s ease-in-out forwards;
     }
+    
+    @keyframes fadeOut {
+        from {
+            opacity: 1;
+        }
+        to {
+            opacity: 0;
+            display: none;
+        }
+    }
+    
+    
+    
+    

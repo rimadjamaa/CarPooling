@@ -7,11 +7,10 @@
       <div class="container col-8 custom-card">
         <h2 class="mt-3 text-center text-center custom-title">Modification de trajet #{{ $rides->id}}</h2>
         {{-- this form will redirect to the methode of search which will redirect to the view user.rides with the reasult  --}}
-        <form class="myform row g-3 mt-3" action="{{ route('admin.RideUpdate',['id'=>$rides->id]) }}" method="POST">
+        <form class="myform row g-2 mt-1" action="{{ route('admin.RideUpdate',['id'=>$rides->id]) }}" method="POST">
         @csrf
             <div class="col-md-6">
                 <label for="conducteur" class="form-label">Condecteur </label>
-                <!--<input type="text" class="form-control" id="conducteur" name="conducteur" placeholder="Ex: ibrahim " value="{{ $rides->user->firstname}}">-->
                 <select id="conducteur" name="conducteur" class="form-select" required>
                     <option value="{{$rides->user_id}}">{{$rides->user->firstname}}</option>
                     @foreach ($users as $user)
@@ -46,10 +45,13 @@
                 <input type="number" class="form-control" id="numSeats" name="numSeats" placeholder="Ex: 2"value="{{ $rides->nb_place_max}}">
             </div>
             <div class="col-md-6">
-                <label for="Prix" class="form-label"> Prix </label>
-                <input type="number" class="form-control" id="Prix" name="Prix" placeholder="Ex: 100"value="{{ $rides->price}}">
+                <label for="Prix" class="form-label">Prix (DA)</label>
+                <div class="input-group">
+                    <input type="number" class="form-control" id="Prix" name="Prix" placeholder="Ex: 100" value="{{ $rides->price }}">
+                    <span class="input-group-text">DA</span>
+                </div>
             </div>
-            <div class="col-12 mt-4">
+            <div class="col-12 mt-1">
                 <button type="submit" class="custom-btn">Valide les modification</button>
             </div>
         </form>

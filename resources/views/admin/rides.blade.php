@@ -41,7 +41,6 @@
         .modify-button,
         .delete-button {
             position: absolute;
-            bottom: 10px;
             background-color: #e9426a;
             color: #fff;
             border: none;
@@ -50,7 +49,8 @@
             cursor: pointer;
             font-size:15px;
             margin-top:20px;
-            margin-right: 30px;
+            padding-left: 40px;
+            padding-right: 40px;
         }
 
         .modify-button:hover,
@@ -59,25 +59,22 @@
         }
 
         .modify-button {
-            right: 10px;
-        }
-
-        .delete-button {
-            right: 100px; /* Adjust as needed */
+            right: 32px;
         }
         
         .ifarme-container{
         border: 2px solid #792174;
         width: 90%;
+        margin-top:25px;
         }
 
         iframe {
-        width: 100%; /* Set the width as needed */
-        height: 100%; /* Set the height as needed */
+        width: 100%; 
+        height: 100%; 
         }
         .edit {
         display: flex;
-        margin: 20px;
+        
 }
 
     </style>
@@ -91,9 +88,6 @@
 </div>
 @endif
     <br>
-    <div class="text-center mt-3" style="margin-bottom: 20px">
-        <a href="{{ url('/admin/home') }}" class="btn col-5" style="text-decoration-line:underline; color:blue; font-size:20px ">retour</a>
-    </div>
     <div class="container col-8 ">
         <h2 class="mt-3 text-center text-center custom-title">Liste des Trajets </h2>
         <ul class="ride-list">
@@ -106,7 +100,10 @@
                         <p>Destination: {{ $firstReservation->destination }}</p>
                         <p>Heure de Départ: {{ $firstReservation->time_depart }}</p>
                         <p>Nombre Max des Places : {{ $firstReservation->nb_place_max }}</p>
+                        <p>longletude : {{ $firstReservation->longletude }}</p>
+                        <p>latitude  : {{ $firstReservation->latitude }}</p>
                         <p>Nombre de Places Disponibles: {{ $firstReservation->nb_place_available }}</p>
+                        <p>Prix: {{ $firstReservation->price }} DA </p>
                     </div>
                     <div class="grad-item">
                         <div class="ifarme-container">
@@ -116,7 +113,7 @@
                             <a class="custom-link" href="{{ route('admin.RideEdit',['id'=>$firstReservation->id]) }}">
                                 <button class="modify-button">Modifier</button>
                             </a>
-                            <button class="delete-button">Supprimer</button>
+                            <a><button class="delete-button">Supprimer</button></a>
                         </div>
                     </div>
 

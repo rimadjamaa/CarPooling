@@ -26,9 +26,10 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light">
             <div class="container">
-                <a class="navbar-brand" href="{{ Auth::check() ? route(Auth::user()->role . '.home') : url('/') }}">
-                    {{ config('app.name', 'CarPooling') }}
-                </a>
+            <a class="navbar-brand" href="{{ Auth::check() ? route(Auth::user()->role . '.home') : url('/') }}">
+    <img id="iconHome" src="{{ asset('assets/icons/bi-backspace.svg') }}" alt="Home Icon"> {{ config('app.name', 'CarPooling') }}
+</a>
+
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
