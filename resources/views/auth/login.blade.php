@@ -9,9 +9,9 @@
         <div class="container text-center text-lg-start">
             <div class="row gx-lg-5 align-items-center">
                 <div class="col-lg-6 mb-5 mb-lg-0" style="z-index: 10">
-                    <h1 class="mt-2 fs-1 display-5 fw-bold ls-tight animate__animated animate__fadeInUp" id="carPoolingHeading" style="color: hsl(218, 81%, 95%)">
+                    <h1 class="mt-2 fs-1 display-5 fw-bold ls-tight" id="carPoolingHeading" style="color: hsl(218, 81%, 95%)">
                         {{ __('CarPooling') }}<br />
-                        <span style="color: hsl(218, 81%, 75%)"> {{ __('Share rides and save money') }}</span>
+                        <span style="color: hsl(218, 81%, 75%)"> {{ __('Partage de trajets, économies garanties!') }}</span>
                     </h1>
                     <img src="{{ asset('assets/img/loginimg.png') }}" alt="vector1" width="70%" height="70%">
                 </div>
@@ -21,8 +21,8 @@
                     <div id="radius-shape-2" class="position-absolute shadow-5-strong"></div>
 
                     <div class="card bg-glass">
-                        <div class="card-body px-4 py-4 px-md-5">
-                            <!-- Login Form -->
+                        <div class="card-body px-4 py-4 ">
+                            <!-- Login Form px-md-5-->
                             <div id="login" class="tab-content login">
                                 <form method="POST" action="{{ route('login') }}" class="text-center">
                                     <h1 class="display-6" style="color: rgb(92, 18, 107); font-size:30px;font-weight:bolder">{{ __('Login') }}</h1>

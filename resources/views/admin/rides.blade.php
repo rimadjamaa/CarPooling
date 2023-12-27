@@ -50,6 +50,7 @@
             cursor: pointer;
             font-size:15px;
             margin-top:20px;
+            margin-right: 30px;
         }
 
         .modify-button:hover,
@@ -74,6 +75,11 @@
         width: 100%; /* Set the width as needed */
         height: 100%; /* Set the height as needed */
         }
+        .edit {
+        display: flex;
+        margin: 20px;
+}
+
     </style>
 @endsection
 
@@ -86,7 +92,7 @@
 @endif
     <br>
     <div class="text-center mt-3" style="margin-bottom: 20px">
-        <a href="{{ url('/admin/home') }}" class="btn col-5" style="text-decoration-line:underline; color:blue; font-size:20px ">Retour</a>
+        <a href="{{ url('/admin/home') }}" class="btn col-5" style="text-decoration-line:underline; color:blue; font-size:20px ">retour</a>
     </div>
     <div class="container col-8 ">
         <h2 class="mt-3 text-center text-center custom-title">Liste des Trajets </h2>
@@ -94,7 +100,7 @@
             @foreach($reservations as $firstReservation)
                 <li class="ride-item">
                     <div class="grad-item" >
-                        <h3>Trajet #</h3>
+                        <h3>Trajet #{{ $firstReservation->id }}</h3>
                         <p>Conducteur: {{ $firstReservation->user->firstname }}</p>
                         <p>Lieu de Départ: {{ $firstReservation->depart }}</p>
                         <p>Destination: {{ $firstReservation->destination }}</p>
@@ -102,17 +108,18 @@
                         <p>Nombre Max des Places : {{ $firstReservation->nb_place_max }}</p>
                         <p>Nombre de Places Disponibles: {{ $firstReservation->nb_place_available }}</p>
                     </div>
-                    <div class="grad-item" style="justify-content-center"> 
+                    <div class="grad-item">
                         <div class="ifarme-container">
-                            <iframe src="https://www.google.com/maps?q={{ $firstReservation->latitude }},{{ $firstReservation->longletude }}&hl=es;z=14&output=embed"  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            <iframe src="https://www.google.com/maps?q={{ $firstReservation->latitude }},{{ $firstReservation->longletude }}&hl=es;z=14&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
-                        <div> 
+                        <div class="edit">
                             <a class="custom-link" href="{{ route('admin.RideEdit',['id'=>$firstReservation->id]) }}">
                                 <button class="modify-button">Modifier</button>
                             </a>
                             <button class="delete-button">Supprimer</button>
                         </div>
                     </div>
+
                     <!-- Ajoutez d'autres détails du trajet ici -->
                 </li> 
             @endforeach
