@@ -5,60 +5,52 @@
 
 @section('content')
       <div class="container col-8 custom-card">
-        <h2 class="mt-3 text-center text-center custom-title">Modification de trajet </h2>
+        <h2 class="mt-3 text-center text-center custom-title">Modification de trajet #{{ $rides->id}}</h2>
         {{-- this form will redirect to the methode of search which will redirect to the view user.rides with the reasult  --}}
-        <form class="myform row g-3 mt-3">
+        <form class="myform row g-3 mt-3" action="{{ route('admin.RideUpdate',['id'=>$rides->id]) }}" method="POST">
+        @csrf
+            <div class="col-md-6">
+                <label for="conducteur" class="form-label">Condecteur </label>
+                <!--<input type="text" class="form-control" id="conducteur" name="conducteur" placeholder="Ex: ibrahim " value="{{ $rides->user->firstname}}">-->
+                <select id="conducteur" name="conducteur" class="form-select" required>
+                    <option value="{{$rides->user_id}}">{{$rides->user->firstname}}</option>
+                    @foreach ($users as $user)
+                        @if ($user->id !== $rides->user_id)
+                            <option value="{{$user->id}}">{{$user->firstname}}</option>
+                        @endif
+                    @endforeach
+                </select>
+            </div>
             <div class="col-md-6">
                 <label for="departureLocation" class="form-label">Lieu de Départ</label>
-                <input type="text" class="form-control" id="departureLocation" placeholder="Ex: Ville de départ " value="{{ $rides->depart}}">
+                <input type="text" class="form-control" id="departureLocation" name="departureLocation" placeholder="Ex: Ville de départ " value="{{ $rides->depart}}">
             </div>
             <div class="col-md-6">
                 <label for="destination" class="form-label">Destination</label>
-                <input type="text" class="form-control" id="destination" placeholder="Ex: Ville de destination" value="Ville B">
+                <input type="text" class="form-control" id="destination" name="destination" placeholder="Ex: Ville de destination" value="{{ $rides->destination}}">
             </div>
             <div class="col-md-6">
                 <label for="departureLocation" class="form-label">Longlitude</label>
-                <input type="text" class="form-control" id="longlitude" placeholder="Votre Longlitude dans maps" value="longlitude">
+                <input type="text" class="form-control" id="longlitude" name="longlitude" placeholder="Votre Longlitude dans maps" value="{{ $rides->longletude}}">
             </div>
             <div class="col-md-6">
                 <label for="departureLocation" class="form-label">Latitude</label>
-                <input type="text" class="form-control" name="latitude" id="latitude" placeholder="Votre Latitude dans maps"value="latitude">
+                <input type="text" class="form-control" name="latitude" id="latitude" placeholder="Votre Latitude dans maps"value="{{ $rides->latitude}}">
             </div>
             <div class="col-md-6">
                 <label for="departureTime" class="form-label">Heure de Départ</label>
-                <input type="text" class="form-control" id="departureTime" placeholder="Ex: 08:00 AM"value="10:30 AM">
+                <input type="text" class="form-control" id="departureTime" name="departureTime"  placeholder="Ex: 08:00 AM"value="{{ $rides->time_depart}}">
             </div>
             <div class="col-md-6">
-                <label for="numSeats" class="form-label">Nombre de Places</label>
-                <input type="number" class="form-control" id="numSeats" placeholder="Ex: 2"value="3">
+                <label for="numSeats" class="form-label">Nombre Max des Places</label>
+                <input type="number" class="form-control" id="numSeats" name="numSeats" placeholder="Ex: 2"value="{{ $rides->nb_place_max}}">
             </div>
             <div class="col-md-6">
-                <label for="luggageSize" class="form-label">Taille des Bagages</label>
-                <select id="luggageSize" class="form-select">
-                    <option value="small">Petit</option>
-                    <option value="medium">Moyen</option>
-                    <option value="large">Grand</option>
-                </select>
+                <label for="Prix" class="form-label"> Prix </label>
+                <input type="number" class="form-control" id="Prix" name="Prix" placeholder="Ex: 100"value="{{ $rides->price}}">
             </div>
-            <div class="col-md-6">
-                <label for="preferredGender" class="form-label">Genre Préféré des Co-Voyageurs</label>
-                <select id="preferredGender" class="form-select">
-                    <option value="any">Peu Importe</option>
-                    <option value="male">Homme</option>
-                    <option value="female">Femme</option>
-                </select>
-            </div>
-            <div class="col-md-6">
-                <label class="form-check-label">Heure de Départ Flexible</label>
-                <input type="checkbox" class="form-check-input" id="flexibleDeparture">
-            </div>
-            <div class="col-md-6">
-                <label class="form-check-label">Accepter les Détours</label>
-                <input type="checkbox" class="form-check-input" id="acceptDetours">
-            </div>
-    
             <div class="col-12 mt-4">
-                <button type="submit" class="custom-btn">Enregistrer</button>
+                <button type="submit" class="custom-btn">Valide les modification</button>
             </div>
         </form>
     </div>

@@ -1,45 +1,63 @@
-body {
-    background-color: #e0e9edad;
-}
+    body {
+        background-color: #e0e9edad;
+    }
 
-.custom-card {
-    background-color: #fde8f95e;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border: 2px solid #e39bd4;
-    border-radius: 5px;
-    text-align: center;
-    margin: 30px;
-    box-shadow: -6px 11px 12px 2px rgba(0,0,0,0.38);
--webkit-box-shadow: -6px 11px 12px 2px rgba(0,0,0,0.38);
--moz-box-shadow: -6px 11px 12px 2px rgba(0,0,0,0.38);
-}
-input[type="text"],
-input[type="number"],
-input[type="checkbox"]{
-    border: 1px solid #e39bd4 ;
-}
-.form-select{
-    border: 1px solid #e39bd4 !important;
-}
-.custom-title {
-    color: #e9426a;
-    font-size: 2rem;
-    font-weight: bold;
-}
-.custom-btn {
-    font-size: 1.3rem;
-    font-weight: bold;
-    background-color: #e9426a;
-    border-color: #e9426a;
-    color: #fff;
-    width: 400px;
-    height: 40px;
-    margin: 20px 0px;
-}
-.custom-btn:hover{
-    border-color: #16070b;
-    background-color: #6e0920;
-}
-.form-control {
-    background-color: #fff;
-}
+    .custom-card {
+        background-color: #fde8f95e;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border: 2px solid #e39bd4;
+        border-radius: 5px;
+        text-align: center;
+        margin: 30px;
+        box-shadow: -6px 11px 12px 2px rgba(0,0,0,0.38);
+        -webkit-box-shadow: -6px 11px 12px 2px rgba(0,0,0,0.38);
+        -moz-box-shadow: -6px 11px 12px 2px rgba(0,0,0,0.38);
+    }
+    input[type="text"],
+    input[type="number"],
+    input[type="checkbox"]{
+        border: 1px solid #e39bd4 ;
+    }
+    .form-select{
+        border: 1px solid #e39bd4 !important;
+    }
+    .custom-title {
+        color: #e9426a;
+        font-size: 2rem;
+        font-weight: bold;
+    }
+    .custom-btn {
+        font-size: 1.3rem;
+        font-weight: bold;
+        background-color: #e9426a;
+        border-color: #e9426a;
+        color: #fff;
+        width: 400px;
+        height: 40px;
+        margin: 20px 0px;
+    }
+    .custom-btn:hover{
+        border-color: #16070b;
+        background-color: #6e0920;
+    }
+    .form-control {
+        background-color: #fff;
+    }
+    .custom-link {
+        text-decoration: none;
+        color: white;
+    }
+    .custom-link:hover {
+        text-decoration: none;
+        color: white;
+    }
+    .alert{
+        font-size: 25px;
+        text-align: center;
+        font-weight: bold;
+        border:2px solid #e9426a!important;
+        background-color: rgb(236, 220, 220) !important;
+        color: #e9426a !important;
+        width: 50%;
+        margin: auto;
+    }

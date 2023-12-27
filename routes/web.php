@@ -46,5 +46,6 @@ Route::middleware(['auth','role:admin'])->group(function()
 {
     Route::get("/admin/home",[HomeController::class, 'adminHome'])->name("admin.home");
     Route::get("/admin/rides",[AdminController::class, 'index'])->name("admin.rides");
-    Route::get("/admin/editride/{id_reservation}",[AdminController::class, 'edit'])->name("admin.RideEdit");
+    Route::post("/admin/updateride/{id}",[AdminController::class, 'update'])->name("admin.RideUpdate");
+    Route::get("/admin/editride/{id}",[AdminController::class, 'edit'])->name("admin.RideEdit");
 });

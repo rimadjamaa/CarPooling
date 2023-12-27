@@ -1,96 +1,124 @@
 @extends('layouts.app')
+
 @section('Style')
-    <link rel="stylesheet" href="{{ asset('assets/FrontEnd/RideSearche.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/admin/RideSearche.css') }}">
+    <style>
+        /* Ajoutez vos styles personnalisés ici */
+        .ride-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .ride-item {
+            position: relative;
+            display: grid;
+            column-gap: 20px;
+            grid-template-columns: 50% 50% ;
+            border: 1px solid #e5e5e5;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .ride-item:hover {
+            transform: scale(1.02);
+        }
+
+        .ride-item h3 {
+            margin-bottom: 10px;
+            color: black;
+            font-weight: bolder;
+        }
+
+        .ride-item p {
+            margin: 0;
+            font-size: 15px;
+            color: #666;
+            display: block;
+        }
+        .modify-button,
+        .delete-button {
+            position: absolute;
+            bottom: 10px;
+            background-color: #e9426a;
+            color: #fff;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size:15px;
+            margin-top:20px;
+        }
+
+        .modify-button:hover,
+        .delete-button:hover {
+            background-color: #792174;
+        }
+
+        .modify-button {
+            right: 10px;
+        }
+
+        .delete-button {
+            right: 100px; /* Adjust as needed */
+        }
+        
+        .ifarme-container{
+        border: 2px solid #792174;
+        width: 90%;
+        }
+
+        iframe {
+        width: 100%; /* Set the width as needed */
+        height: 100%; /* Set the height as needed */
+        }
+    </style>
 @endsection
 
 @section('content')
-      <link rel="stylesheet" href="{{ asset('assets/FrontEnd/RideSearche.css') }}">
-      <div class="container col-8 custom-card">
-        <h2 class="mt-3 text-center text-center custom-title">Modification de trajet </h2>
-        {{-- this form will redirect to the methode of search which will redirect to the view user.rides with the reasult  --}}
-        <form class="myform row g-3 mt-3">
-            <div class="col-md-6">
-                <label for="departureLocation" class="form-label">Lieu de Départ</label>
-                <input type="text" class="form-control" id="departureLocation" placeholder="Ex: Ville de départ " value="Ville A">
-            </div>
-            <div class="col-md-6">
-                <label for="destination" class="form-label">Destination</label>
-                <input type="text" class="form-control" id="destination" placeholder="Ex: Ville de destination" value="Ville B">
-            </div>
-            <div class="col-md-6">
-                <label for="departureLocation" class="form-label">Longlitude</label>
-                <input type="text" class="form-control" id="longlitude" placeholder="Votre Longlitude dans maps" value="longlitude">
-            </div>
-            <div class="col-md-6">
-                <label for="departureLocation" class="form-label">Latitude</label>
-                <input type="text" class="form-control" name="latitude" id="latitude" placeholder="Votre Latitude dans maps"value="latitude">
-            </div>
-            <div class="col-md-6">
-                <label for="departureTime" class="form-label">Heure de Départ</label>
-                <input type="text" class="form-control" id="departureTime" placeholder="Ex: 08:00 AM"value="10:30 AM">
-            </div>
-            <div class="col-md-6">
-                <label for="numSeats" class="form-label">Nombre de Places</label>
-                <input type="number" class="form-control" id="numSeats" placeholder="Ex: 2"value="3">
-            </div>
-            <div class="col-md-6">
-                <label for="luggageSize" class="form-label">Taille des Bagages</label>
-                <select id="luggageSize" class="form-select">
-                    <option value="small">Petit</option>
-                    <option value="medium">Moyen</option>
-                    <option value="large">Grand</option>
-                </select>
-            </div>
-            <div class="col-md-6">
-                <label for="preferredGender" class="form-label">Genre Préféré des Co-Voyageurs</label>
-                <select id="preferredGender" class="form-select">
-                    <option value="any">Peu Importe</option>
-                    <option value="male">Homme</option>
-                    <option value="female">Femme</option>
-                </select>
-            </div>
-            <div class="col-md-6">
-                <label class="form-check-label">Heure de Départ Flexible</label>
-                <input type="checkbox" class="form-check-input" id="flexibleDeparture">
-            </div>
-            <div class="col-md-6">
-                <label class="form-check-label">Accepter les Détours</label>
-                <input type="checkbox" class="form-check-input" id="acceptDetours">
-            </div>
-    
-            <div class="col-12 mt-4">
-                <button type="submit" class="custom-btn">Enregistrer</button>
-            </div>
-        </form>
+
+@if(session('success'))
+<div class="alert alert-success items-center" >
+    {{ session('success') }}
+</div>
+@endif
+    <br>
+    <div class="text-center mt-3" style="margin-bottom: 20px">
+        <a href="{{ url('/admin/home') }}" class="btn col-5" style="text-decoration-line:underline; color:blue; font-size:20px ">Retour</a>
+    </div>
+    <div class="container col-8 ">
+        <h2 class="mt-3 text-center text-center custom-title">Liste des Trajets </h2>
+        <ul class="ride-list">
+            @foreach($reservations as $firstReservation)
+                <li class="ride-item">
+                    <div class="grad-item" >
+                        <h3>Trajet #</h3>
+                        <p>Conducteur: {{ $firstReservation->user->firstname }}</p>
+                        <p>Lieu de Départ: {{ $firstReservation->depart }}</p>
+                        <p>Destination: {{ $firstReservation->destination }}</p>
+                        <p>Heure de Départ: {{ $firstReservation->time_depart }}</p>
+                        <p>Nombre Max des Places : {{ $firstReservation->nb_place_max }}</p>
+                        <p>Nombre de Places Disponibles: {{ $firstReservation->nb_place_available }}</p>
+                    </div>
+                    <div class="grad-item" style="justify-content-center"> 
+                        <div class="ifarme-container">
+                            <iframe src="https://www.google.com/maps?q={{ $firstReservation->latitude }},{{ $firstReservation->longletude }}&hl=es;z=14&output=embed"  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                        <div> 
+                            <a class="custom-link" href="{{ route('admin.RideEdit',['id'=>$firstReservation->id]) }}">
+                                <button class="modify-button">Modifier</button>
+                            </a>
+                            <button class="delete-button">Supprimer</button>
+                        </div>
+                    </div>
+                    <!-- Ajoutez d'autres détails du trajet ici -->
+                </li> 
+            @endforeach
+            <!-- Ajoutez plus de trajets au besoin -->
+        </ul>
     </div>
 @endsection
 @section('scripte')
-<script type="text/javascript">
-
-        if (navigator.geolocation) {
-                // Demandez la géolocalisation à l'utilisateur
-                navigator.geolocation.getCurrentPosition(function (position) {
-                    var latitude = position.coords.latitude;
-                    var longitude = position.coords.longitude;
-
-                    // Affichez les coordonnées dans le paragraphe
-                    document.getElementById('latitude').value = 'Latitude: ' + latitude ;
-                    document.getElementById('longlitude').value = 'Longlitude: ' + longitude ;
-
-                    // Remplissez automatiquement le champ de lieu de départ
-                    var googleMapsLink = `https://www.google.com/maps?q=${latitude},${longitude}`;
-
-                    // Remplir automatiquement le champ de lieu de départ avec le lien Google Maps
-                    document.getElementById('departureLocation').value = googleMapsLink;
-                }, function (error) {
-                    console.error('Erreur de géolocalisation:', error.message);
-                    locationResult.textContent = 'Impossible d\'obtenir la géolocalisation.';
-                });
-
-        } else {
-            console.error('La géolocalisation n\'est pas prise en charge par ce navigateur.');
-            locationResult.textContent = 'La géolocalisation n\'est pas prise en charge par ce navigateur.';
-        }
-   
-</script>
 @endsection
