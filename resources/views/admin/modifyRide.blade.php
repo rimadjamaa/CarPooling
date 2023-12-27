@@ -56,32 +56,5 @@
     </div>
 @endsection
 @section('scripte')
-<script type="text/javascript">
 
-        if (navigator.geolocation) {
-                // Demandez la géolocalisation à l'utilisateur
-                navigator.geolocation.getCurrentPosition(function (position) {
-                    var latitude = position.coords.latitude;
-                    var longitude = position.coords.longitude;
-
-                    // Affichez les coordonnées dans le paragraphe
-                    document.getElementById('latitude').value = 'Latitude: ' + latitude ;
-                    document.getElementById('longlitude').value = 'Longlitude: ' + longitude ;
-
-                    // Remplissez automatiquement le champ de lieu de départ
-                    var googleMapsLink = `https://www.google.com/maps?q=${latitude},${longitude}`;
-
-                    // Remplir automatiquement le champ de lieu de départ avec le lien Google Maps
-                    document.getElementById('departureLocation').value = googleMapsLink;
-                }, function (error) {
-                    console.error('Erreur de géolocalisation:', error.message);
-                    locationResult.textContent = 'Impossible d\'obtenir la géolocalisation.';
-                });
-
-        } else {
-            console.error('La géolocalisation n\'est pas prise en charge par ce navigateur.');
-            locationResult.textContent = 'La géolocalisation n\'est pas prise en charge par ce navigateur.';
-        }
-   
-</script>
 @endsection

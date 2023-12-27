@@ -7,11 +7,7 @@
 <div class="container col-8 custom-card">
     <h2 class="mt-3 text-center text-center custom-title">Recherche de Trajet</h2>
     {{-- this form will redirect to the methode of search which will redirect to the view user.rides with the reasult  --}}
-<<<<<<< HEAD
-    <form method="GET" class="myform row g-3 mt-3">
-=======
     <form method="GET" action="{{route('user.ridesearch')}}" class="myform row g-3 mt-3">
->>>>>>> fd2e7db0a51d748526ef135fed4a84a569f4fe51
         <div class="col-md-6">
             <label for="departureLocation" class="form-label">Lieu de Départ</label>
             <input type="text" name="Depart" class="form-control" id="departureLocation" placeholder="Ex: Ville de départ">
