@@ -68,7 +68,7 @@
                 <p>Destination: Ville B</p>
                 <p>Heure de Départ: 08:00 AM</p>
                 <p>Nombre de Places Disponibles: 3</p>
-                <button class="reserve-button">Réserver Le Trajet</button>
+                <button class="reserve-button">Réserver</button>
                 <!-- Ajoutez d'autres détails du trajet ici -->
             </li>
 

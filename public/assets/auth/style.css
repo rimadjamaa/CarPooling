@@ -12,18 +12,10 @@ body {
 .background-radial-gradient {
     width: 100%;
     height: 100%;
-    background-color: hsl(218, 41%, 15%);
-    background-image: radial-gradient(650px circle at 0% 0%, #8f21bd 15%, #ae21bd 35%,
-    hsl(282.98deg 48.15% 26.14%) 75%,
-    hsl(292.28deg 41% 19%) 80%,
-    transparent 100%),
-    radial-gradient(1250px circle at 100% 100%,
-    hsl(305.13deg 67.4% 48.54%) 15%,
-    hsl(324.52deg 41% 30%) 35%,
-    hsl(318.29deg 41% 20%) 75%,
-    hsl(332.31deg 90.16% 14.16%) 80%,
-    transparent 100%);
+    background: rgba(0,0,0,0.19)0px 10px 20px, rgba(0,0,0,0.23)0px 6px 6px;
+    padding-top: 80px;
 }
+
 
 #radius-shape-1 {
     height: 220px;

@@ -8,6 +8,9 @@
     width: 50%;
     margin: auto;
 }
+section{
+    background: linear-gradient(98deg,#b68cbc 0%,#fff 100%);
+}
 body{
     --bs-body-font-size: 0rem;
     font-size: 15px;
@@ -24,7 +27,7 @@ nav{
     margin: 0px 10px;
 }
 #app .navbar{
-    background-color: #ee8ea6dc;
+    background: linear-gradient(0deg,#fff 0%,#eedcea 51%,#e5eef7 100%);
     color: white;
     font-size: 18px;
     border-radius: 0px 0px 20px 20px;
@@ -42,8 +45,19 @@ nav{
     font-size: 18px;
     text-transform: capitalize;
     font-weight: bolder;
+
 }
 #app .nav-item{
-
 margin: 0px 20px;
+
+}
+#app .nav-link{
+    background: linear-gradient(180deg,#e9426a 0%,
+    rgb(138, 29, 102)51%,
+    rgb(130, 78, 140)100%) !important;
+    color: #fff;
+    padding: 8px 10px;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: all .3s ease;
 }

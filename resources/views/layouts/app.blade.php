@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -17,8 +17,6 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('assets/FrontEnd/app.css') }}">
     @yield('Style')
-
-
     <!-- Scripts 'resources/sass/app.scss',-->
     @vite(['resources/sass/app.scss','resources/js/app.js'])
 </head>
@@ -26,8 +24,9 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light">
             <div class="container">
+
                 <a class="navbar-brand" href="{{ Auth::check() ? route(Auth::user()->role . '.home') : url('/') }}">
-                    {{ config('app.name', 'CarPooling') }}
+                    <img src="{{ asset('assets/img/logo1.png') }}" width="120PX" class="logo">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>

@@ -9,10 +9,6 @@
         <div class="container text-center text-lg-start">
             <div class="row gx-lg-5 align-items-center">
                 <div class="col-lg-6 mb-5 mb-lg-0" style="z-index: 10">
-                    <h1 class="mt-2 fs-1 display-5 fw-bold ls-tight" id="carPoolingHeading" style="color: hsl(218, 81%, 95%)">
-                        {{ __('CarPooling') }}<br />
-                        <span style="color: hsl(218, 81%, 75%)"> {{ __('Partage de trajets, économies garanties!') }}</span>
-                    </h1>
                     <img src="{{ asset('assets/img/loginimg.png') }}" alt="vector1" width="70%" height="70%">
                 </div>
                 <div class="col-lg-6 mb-3 mb-lg-0 position-relative">
