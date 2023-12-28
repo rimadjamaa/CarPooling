@@ -26,6 +26,7 @@
             <div class="container">
 
                 <a class="navbar-brand" href="{{ Auth::check() ? route(Auth::user()->role . '.home') : url('/') }}">
+                    <img src="{{ asset('assets/icons/bi-backspace.svg') }}" id="iconHome"  alt="Home Icon">    
                     <img src="{{ asset('assets/img/logo1.png') }}" width="120PX" class="logo">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">

@@ -99,10 +99,6 @@
     </div>
     @endif
     <br>
-    <div class="text-center mt-3" style="margin-bottom: 20px">
-        <a href="{{ url('/driver/home') }}" class="btn col-5" style="text-decoration-line:underline; color:blue; font-size:20px ">Retour</a>
-    </div>
-    <br>
     <div class="container col-8 ">
         <h2 class="text-center text-center custom-title" style="margin-top: 50px;margin-bottom:20px">Vos Trajets Proposer</h2>
         <ul class="ride-list">

@@ -20,9 +20,9 @@ body {
 #radius-shape-1 {
     height: 220px;
     width: 220px;
-    top: -60px;
-    left: -130px;
-    background: radial-gradient(#44006b, #ad1fff);
+    top: -10px;
+    left: -10px;
+    background: radial-gradient(#ee8ea6, #b991bf);
     overflow: hidden;
 }
 
@@ -32,7 +32,7 @@ body {
     right: -80px;
     width: 300px;
     height: 300px;
-    background: radial-gradient(#44006b, #ad1fff);
+    background: radial-gradient(#ee8ea6, #b991bf);
     overflow: hidden;
 }
 .bg-glass {

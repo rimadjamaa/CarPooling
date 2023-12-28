@@ -46,3 +46,27 @@ input[type="checkbox"]{
 .form-control {
     background-color: #fff;
 }
+.alert {
+    font-size: 18px;
+    text-align: center;
+    font-weight: bold;
+    border: 2px solid #af4c82 !important; 
+    background-color: #f0d8f0 !important; 
+    color: #bd135d !important; 
+    width: 20%;
+    margin: 20px 0 20px 20px; 
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    animation: fadeOut 5s ease-in-out forwards;
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        display: none;
+    }
+}

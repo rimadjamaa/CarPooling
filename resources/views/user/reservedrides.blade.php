@@ -73,9 +73,6 @@
 
 @section('content')
     <br>
-    <div class="text-center mt-3" style="margin-bottom: 20px">
-        <a href="{{ url('/user/home') }}" class="btn col-5" style="text-decoration-line:underline; color:blue; font-size:20px ">Retour</a>
-    </div>
     <div class="container col-8 ">
         <h2 class="mt-3 text-center text-center custom-title">Liste des Trajets Reserver</h2>
     <br>

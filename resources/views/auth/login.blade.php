@@ -5,12 +5,16 @@
 @section('content')
  <!-- Page disgn  -->
 <div class="row">
-    <section class="background-radial-gradient overflow-hidden" style="height: 87vh;">
+    <section class="background-radial-gradient overflow-hidden" style="height: 87vh; padding-top: 20px;">
         <div class="container text-center text-lg-start">
             <div class="row gx-lg-5 align-items-center">
                 <div class="col-lg-6 mb-5 mb-lg-0" style="z-index: 10">
-                    <img src="{{ asset('assets/img/loginimg.png') }}" alt="vector1" width="70%" height="70%">
+                    <h2 class="mt-2 fs-1 display-5 fw-bold ls-tight" id="carPoolingHeading" style="color: hsl(218, 81%, 95%)">
+                        <span class="gradient-text"> {{ __('Partage de trajets, économies garanties!') }}</span>
+                    </h2>
+                    <img src="{{ asset('assets/img/home1.png') }}" alt="vector1" width="70%" height="70%">
                 </div>
+                
                 <div class="col-lg-6 mb-3 mb-lg-0 position-relative">
                     <!-- Background shapes -->
                     <div id="radius-shape-1" class="position-absolute rounded-circle shadow-5-strong"></div>
@@ -48,7 +52,7 @@
                                     </p>
 
                                     <!-- Submit button -->
-                                    <button type="submit" style="background-color: #aa51a5;border:none" class="btn btn-primary btn-block mb-4 col-10"> {{ __('Se connecter') }} </button>
+                                    <button type="submit" style="background: linear-gradient(180deg, #e9426a 0%, rgb(138, 29, 102) 51%, rgb(130, 78, 140) 100%);border:none" class="btn btn-primary btn-block mb-4 col-10"> {{ __('Se connecter') }} </button>
                                     <p>{{ __('Vous n’avez pas de compte ?') }} <a style="color:#aa51a5;font-weight:bold" href="{{ route('register') }}" class="tab-link">{{ __('Inscrivez-vous') }}</a></p>
                                 </form>
                             </div>

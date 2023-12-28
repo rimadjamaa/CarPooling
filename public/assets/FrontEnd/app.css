@@ -62,3 +62,9 @@ margin: 0px 20px;
     font-weight: 500;
     transition: all .3s ease;
 }
+.gradient-text {
+    background: linear-gradient(180deg, #e9426a 0%, rgb(138, 29, 102) 51%, rgb(130, 78, 140) 100%);
+    background-clip: text;
+    color: transparent; /* Make the text transparent to show the gradient background */
+    /* Add any other styles you want to apply to the text */
+  }
