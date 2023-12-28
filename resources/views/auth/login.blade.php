@@ -21,10 +21,10 @@
                             <!-- Login Form px-md-5-->
                             <div id="login" class="tab-content login">
                                 <form method="POST" action="{{ route('login') }}" class="text-center">
-                                    <h1 class="display-6" style="color: rgb(92, 18, 107); font-size:30px;font-weight:bolder">{{ __('Login') }}</h1>
+                                    <h1 class="display-6" style="color: rgb(92, 18, 107); font-size:30px;font-weight:bolder">{{ __('Se connecter') }}</h1>
                                     @csrf
                                     <div class="form-outline mb-4">
-                                        <input type="email" id="form3Example3" class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}" name="email" placeholder="Email address" value="{{ old('email') }}" required autofocus>
+                                        <input type="email" id="form3Example3" class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}" name="email" placeholder="Address Email" value="{{ old('email') }}" required autofocus>
                                         @if ($errors->has('email'))
                                             <span class="helper-text" data-error="wrong" data-success="right">
                                                 <strong>{{ $errors->first('email') }}</strong>
@@ -33,7 +33,7 @@
                                     </div>
                                     <!-- Password input -->
                                     <div class="form-outline mb-4">
-                                        <input type="password" id="form3Example4" class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}" name="password" placeholder="Password" value="{{ old('password') }}" required autofocus>
+                                        <input type="password" id="form3Example4" class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}" name="password" placeholder="Mot de pass" value="{{ old('password') }}" required autofocus>
                                         @if ($errors->has('password'))
                                             <span class="helper-text" data-error="wrong" data-success="right">
                                                 <strong>{{ $errors->first('password') }}</strong>
@@ -43,13 +43,13 @@
                                     <p>
                                         <label>
                                             <input type="checkbox" name="remember" class="filled-in" {{ old('remember') ? 'checked' : '' }} />
-                                            <span>{{ __('Remember Me') }}</span>
+                                            <span>{{ __('Remember Me') }}</span> <!--Jnsp kifah y9olo remembre me en français-->
                                         </label>
                                     </p>
 
                                     <!-- Submit button -->
-                                    <button type="submit" style="background-color: #aa51a5;border:none" class="btn btn-primary btn-block mb-4 col-10"> {{ __('Login') }} </button>
-                                    <p>{{ __('Do not have an account?') }} <a style="color:#aa51a5;font-weight:bold" href="{{ route('register') }}" class="tab-link">{{ __('Sign up') }}</a></p>
+                                    <button type="submit" style="background-color: #aa51a5;border:none" class="btn btn-primary btn-block mb-4 col-10"> {{ __('Se connecter') }} </button>
+                                    <p>{{ __('Vous n’avez pas de compte ?') }} <a style="color:#aa51a5;font-weight:bold" href="{{ route('register') }}" class="tab-link">{{ __('Inscrivez-vous') }}</a></p>
                                 </form>
                             </div>
                         </div>

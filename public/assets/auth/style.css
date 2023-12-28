@@ -38,7 +38,7 @@ body {
 .bg-glass {
     background-color: hsla(0, 0%, 100%, 0.9) !important;
     backdrop-filter: saturate(200%) blur(25px);
-    margin:40px ;
+    margin: 20px;
 }
 
 
@@ -127,5 +127,5 @@ p{
     color: blue !important;
     width: auto;
     height: auto;
-    font-size: 15px;
+    font-size: 14px;
 }

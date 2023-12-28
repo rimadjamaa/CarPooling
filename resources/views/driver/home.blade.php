@@ -61,8 +61,11 @@
 
         </div>
         <div class="col-md-6">
-            <label for="price" class="form-label">Prix du Trajet</label>
-            <input type="text" name="Price" class="form-control" id="price" placeholder="Ex: 20$" required>
+            <label for="price" class="form-label">Prix du Trajet (DA)</label>
+            <div class="input-group"> 
+                <input type="text" name="Price" class="form-control" id="price" placeholder="Ex: 20$" required>
+                <span class="input-group-text">DA</span>
+            </div>
         </div>
 
         <!-- Ajoutez d'autres champs selon vos besoins -->

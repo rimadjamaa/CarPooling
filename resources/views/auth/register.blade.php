@@ -19,17 +19,17 @@
                     <div id="radius-shape-2" class="position-absolute shadow-5-strong"></div>
 
                     <div class="card bg-glass">
-                        <div class="card-body px-4 py-4 px-md-5">
+                        <div class="card-body px-4 py-4 px-md-3">
                          <!-- Sign Up Form -->
                             <div id="signup" class="tab-content signup">
                                 <form method="POST" action="{{ route('register') }}" class="text-center">
                                     @csrf
-                                    <h1 class="display-6" style="color: rgb(92, 18, 107); font-size:30px;font-weight:bolder">{{ __('Sign Up') }}</h1>
+                                    <h1 class="display-6" style="color: rgb(92, 18, 107); font-size:30px;font-weight:bolder">{{ __('Inscrivez-vous') }}</h1>
                                     <div class="row">
                                         <!-- First Name input -->
                                         <div class="col-md-6 mb-2">
                                             <div class="form-outline">
-                                                <input type="text" id="form3Example1" class="form-control @error('firstname') is-invalid @enderror" name="firstname" placeholder="First name" required/>
+                                                <input type="text" id="form3Example1" class="form-control @error('firstname') is-invalid @enderror" name="firstname" placeholder="Prénom" required/>
                                                 @error('firstname')
                                                     <span class="helper-text" data-error="wrong" data-success="right">
                                                         <strong>{{ $message }}</strong>
@@ -41,7 +41,7 @@
                                         <!-- Last Name input -->
                                         <div class="col-md-6 mb-4">
                                             <div class="form-outline">
-                                                <input type="text" id="form3Example2" class="form-control @error('lastname') is-invalid @enderror" name="lastname" placeholder="Last name" required/>
+                                                <input type="text" id="form3Example2" class="form-control @error('lastname') is-invalid @enderror" name="lastname" placeholder="Nom" required/>
                                                 @error('lastname')
                                                     <span class="helper-text" data-error="wrong" data-success="right">
                                                         <strong>{{ $message }}</strong>
@@ -63,7 +63,7 @@
 
                                     <!-- Phone number input -->
                                     <div class="form-outline mb-4">
-                                        <input type="tel" id="form3Example4" class="form-control @error('phoneNumber') is-invalid @enderror" name="phoneNumber" placeholder="Phone number" required/>
+                                        <input type="tel" id="form3Example4" class="form-control @error('phoneNumber') is-invalid @enderror" name="phoneNumber" placeholder="Numéro mobile" required/>
                                         @error('phoneNumber')
                                             <span class="helper-text" data-error="wrong" data-success="right">
                                                 <strong>{{ $message }}</strong>
@@ -73,7 +73,7 @@
 
                                     <!-- Email input -->
                                     <div class="form-outline mb-4">
-                                        <input type="email" id="form3Example5" class="form-control @error('email') is-invalid @enderror" name="email" placeholder="Email Address" required/>
+                                        <input type="email" id="form3Example5" class="form-control @error('email') is-invalid @enderror" name="email" placeholder="Email " required/>
                                         @error('email')
                                             <span class="helper-text" data-error="wrong" data-success="right">
                                                 <strong>{{ $message }}</strong>
@@ -95,14 +95,14 @@
 
                                     <!-- Password input -->
                                     <div class="form-outline mb-4">
-                                        <input type="password" id="form3Example6" class="form-control" name="password" placeholder="Password" required/>
+                                        <input type="password" id="form3Example6" class="form-control" name="password" placeholder="Mot de pass" required/>
 
                                     </div>
                                     <!-- Role selection labels with increased width and height in the same line -->
                                     <div class="row justify-content-center">
                                     <div class="col-4 mb-4 form-check ">
                                         <input class=" @error('role') is-invalid @enderror" type="radio" name="role" id="role1" value="driver">
-                                        <label class="custom-label" for="role1">Driver</label>
+                                        <label class="custom-label" for="role1">Conducteur</label>
                                         @error('role')
                                             <span class="helper-text" style="width: auto;height:auto;font-size:20px;" data-error="wrong" data-success="right">
                                                 <strong>{{ $message }}</strong>
@@ -122,10 +122,10 @@
                                     </div>
                                     <!-- Submit button -->
                                     <button type="submit" style="background-color: #aa51a5;border:none" class="btn btn-primary btn-block mb-4 col-10">
-                                        {{ __('Sign up') }}
+                                        {{ __('S’inscrire') }}
                                     </button>
                                     <br>
-                                    <p class="mb-4" style="color: blue;">{{ __('Already have an account?') }} <a style="color:#aa51a5;font-weight:bold" href="{{ route('login') }}" class="tab-link">{{ __('Login') }}</a></p>
+                                    <p class="mb-4" style="color: blue;">{{ __('Vous avez un compte ?') }} <a style="color:#aa51a5;font-weight:bold" href="{{ route('login') }}" class="tab-link">{{ __('Connectez-vous') }}</a></p>
 
                                 </form>
                             </div>
