@@ -80,27 +80,18 @@
         <h2 class="mt-3 text-center text-center custom-title">Liste des Trajets Reserver</h2>
     <br>
         <ul class="ride-list">
-            <li class="ride-item">
-                <h3>Trajet 1</h3>
-                <p>Lieu de Départ: Ville A</p>
-                <p>Destination: Ville B</p>
-                <p>Heure de Départ: 08:00 AM</p>
-                <p>Nombre de Places Disponibles: 3</p>
-                <button class="reserved-button">Réserver Deja</button>
-                <!-- Ajoutez d'autres détails du trajet ici -->
-            </li>
+            @foreach ($reservations as $reservation)
+                <li class="ride-item">
+                    <h3>Trajet #{{ $loop->iteration }}</h3>
+                    <p>Lieu de Départ: {{ $reservation->pooling->depart}}</p>
+                    <p>Destination: {{ $reservation->pooling->destination}}</p>
+                    <p>Heure de Départ: {{ $reservation->pooling->time_depart}}</p>
+                    <p>Heure Prix: {{ $reservation->pooling->price}}</p>
+                    <button class="reserved-button">Réserver Deja</button>
+                    <!-- Ajoutez d'autres détails du trajet ici -->
+                </li>
+            @endforeach
 
-            <li class="ride-item">
-                <h3>Trajet 2</h3>
-                <p>Lieu de Départ: Ville C</p>
-                <p>Destination: Ville D</p>
-                <p>Heure de Départ: 09:30 AM</p>
-                <p>Nombre de Places Disponibles: 2</p>
-                <button class="reserved-button">Réserver Deja</button>
-                <!-- Ajoutez d'autres détails du trajet ici -->
-            </li>
-
-            <!-- Ajoutez plus de trajets au besoin -->
 
         </ul>
     </div>

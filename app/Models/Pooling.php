@@ -17,5 +17,4 @@ class Pooling extends Model
     {
         return $this->hasMany(Reservation::class, 'pooling_id');
     }
-
 }

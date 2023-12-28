@@ -65,25 +65,64 @@
             width: 100%; /* Set the width as needed */
             height: 100%; /* Set the height as needed */
         }
+        .modify-button,
+        .delete-button {
+            background-color: #e9426a;
+            color: #fff;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size:15px;
+            margin-top:20px;
+        }
+
+        .modify-button:hover,
+        .delete-button:hover {
+            background-color: #792174;
+        }
+
+        .modify-button {
+            right: 10px;
+        }
+
+        .delete-button {
+            right: 100px; /* Adjust as needed */
+        }
     </style>
 @endsection
 
 @section('content')
+    @if(session('success'))
+    <div class="alert alert-success items-center" >
+        {{ session('success') }}
+    </div>
+    @endif
+    <br>
+    <div class="text-center mt-3" style="margin-bottom: 20px">
+        <a href="{{ url('/driver/home') }}" class="btn col-5" style="text-decoration-line:underline; color:blue; font-size:20px ">Retour</a>
+    </div>
     <br>
     <div class="container col-8 ">
         <h2 class="text-center text-center custom-title" style="margin-top: 50px;margin-bottom:20px">Vos Trajets Proposer</h2>
         <ul class="ride-list">
             @forelse ($rides as $ride)
             <li class="ride-item" style="position: relative">
-                <div class="items">
+                <div class="items grid-item">
                 <h3>Trajet #{{ $loop->iteration }}</h3>
                 <p>Lieu de Départ: {{ $ride->depart }}</p>
                 <p>Destination: {{ $ride->destination }}</p>
                 <p>Heure de Départ: {{ $ride->time_depart }}</p>
                 <p>Nombre de Places Disponibles: {{ $ride->nb_place_available }}</p>
+                <a class="custom-link" href="{{ route('driver.RideDelete',['id'=>$ride->id]) }}">
+                    <button class="delete-button" style="font-size: 15px">Supprimer</button>
+                </a>
                 </div>
-                <div class="ifarme-container">
-                <iframe src="https://www.google.com/maps?q={{ $ride->latitude }},{{ $ride->longletude }}&hl=es;z=14&output=embed"  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <div class="grid-item">
+                    <div class="ifarme-container">
+                    <iframe src="https://www.google.com/maps?q={{ $ride->latitude }},{{ $ride->longletude }}&hl=es;z=14&output=embed"  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+
                 </div>
             </li>
             @empty

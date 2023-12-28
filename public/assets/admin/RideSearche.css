@@ -29,6 +29,7 @@
         color: #e9426a;
         font-size: 2rem;
         font-weight: bold;
+        margin: 50px 0px;
     }
     .custom-btn {
         font-size: 1.3rem;
@@ -79,7 +80,3 @@
             display: none;
         }
     }
-    
-    
-    
-    

@@ -38,6 +38,7 @@ class RideController extends Controller
         $ride->latitude=$request->Latitude;
         $ride->time_depart=$request->Depart_time;
         $ride->nb_place_max=$request->Nb_Place;
+        $ride->nb_place_available=$request->Nb_Place;
         $ride->bagage_size=$request->Bagage_size;
         $ride->gender=$request->Gender;
         $ride->price=$request->Price;
@@ -55,7 +56,6 @@ class RideController extends Controller
         $rides = Pooling::where('user_id', $id)->get();
         return view('driver.rides',compact('rides'));
     }
-
     /**
      * Show the form for editing the specified resource.
      */
@@ -77,76 +77,11 @@ class RideController extends Controller
      */
     public function destroy(string $id)
     {
-        //
-    }
-    public function reserve(string $id , string $userid)
-    {
-
-        $reservation=new Reservation();
-        $reservation->pooling_id=$id;
-        $reservation->user_id=$userid ;
-        $reservation->save();
-
-        return redirect()->route('user.reservedrides')->with('success', 'Trajet Réservé');
+        $ride = Pooling::find($id);
+        $idDriver=$ride->user_id;
+        $ride->delete();
+        return redirect()->route('driver.rides',['idDriver' => $idDriver])->with('success', 'Trajet Supprimer');
     }
 
 
-
-    public function search(Request $request)
-    {
-        $destination = $request->input('Destination');
-        $Depart_time = $request->input('Depart_time');
-        $Nb_place = $request->input('Nb_place');
-        $Bagage_size = $request->input('Bagage_size');
-        $Gender = $request->input('Gender');
-        $Longlitude = $request->input('Longlitude');
-        $Latitude = $request->input('Latitude');
-
-        $query = Pooling::query();
-
-        // Add conditions based on the search criteria
-
-        if ($destination) {
-            $query->where('destination', 'LIKE', '%' . $destination . '%');
-        }
-        
-        // if ($Depart_time) {
-        //     // Convert input date to the database format
-        //     $formattedDepartTime = Carbon::createFromFormat('d-m-Y H:i', $Depart_time)->format('Y-m-d H:i');
-        
-        //     // Use the converted date in the query
-        //     $query->where('time_depart', 'LIKE', '%' . $formattedDepartTime . '%');
-        // }
-        
-        if ($Nb_place) {
-            $query->where('nb_place_available', '>=', $Nb_place);
-        }
-        
-        if ($Bagage_size) {
-            $query->where('bagage_size', 'LIKE', '%' . $Bagage_size . '%');
-        }
-        
-        if ($Gender) {
-            if ($Gender !== 'any') {
-                $query->where('gender', 'LIKE', '%' . $Gender . '%');
-            }
-            else { $query->where('gender', 'LIKE', '%' . 'any' . '%'); }
-        }
-        
-        if ($Longlitude) {
-            $query->whereBetween('longletude', [$Longlitude - 1, $Longlitude + 1]);
-        }
-        
-        if ($Latitude) {
-            $query->whereBetween('latitude', [$Latitude - 1, $Latitude + 1]);
-        }
-        
-
-        // Add more conditions as needed
-
-        $rides = $query->get();
-
-
-        return view('user.ridesresults', compact('rides'));
-    }
 }

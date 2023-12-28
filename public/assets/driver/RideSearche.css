@@ -5,17 +5,6 @@ body {
 label{
     font-size: 15px;
 }
-.alert{
-    font-size: 25px;
-    text-align: center;
-    font-weight: bold;
-    border:2px solid #e9426a!important;
-    background-color: rgb(236, 220, 220) !important;
-    color: #e9426a !important;
-    width: 50%;
-    margin: auto;
-
-}
 .custom-card {
     background-color: #fde8f95e;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);

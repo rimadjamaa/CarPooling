@@ -61,7 +61,7 @@
         .modify-button {
             right: 32px;
         }
-        
+
         .ifarme-container{
         border: 2px solid #792174;
         width: 90%;
@@ -94,7 +94,7 @@
             @foreach($reservations as $firstReservation)
                 <li class="ride-item">
                     <div class="grad-item" >
-                        <h3>Trajet #{{ $firstReservation->id }}</h3>
+                        <h3>Trajet #{{ $loop->iteration }}</h3>
                         <p>Conducteur: {{ $firstReservation->user->firstname }}</p>
                         <p>Lieu de Départ: {{ $firstReservation->depart }}</p>
                         <p>Destination: {{ $firstReservation->destination }}</p>
@@ -105,20 +105,20 @@
                         <p>Nombre de Places Disponibles: {{ $firstReservation->nb_place_available }}</p>
                         <p>Prix: {{ $firstReservation->price }} DA </p>
                     </div>
-                    <div class="grad-item">
+                    <div class="grad-item" style="justify-content-center">
                         <div class="ifarme-container">
                             <iframe src="https://www.google.com/maps?q={{ $firstReservation->latitude }},{{ $firstReservation->longletude }}&hl=es;z=14&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
-                        <div class="edit">
+                        <div>
                             <a class="custom-link" href="{{ route('admin.RideEdit',['id'=>$firstReservation->id]) }}">
                                 <button class="modify-button">Modifier</button>
                             </a>
-                            <a><button class="delete-button">Supprimer</button></a>
+                            <button class="delete-button">Supprimer</button>
                         </div>
                     </div>
 
                     <!-- Ajoutez d'autres détails du trajet ici -->
-                </li> 
+                </li>
             @endforeach
             <!-- Ajoutez plus de trajets au besoin -->
         </ul>

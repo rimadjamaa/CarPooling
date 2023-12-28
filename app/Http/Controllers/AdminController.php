@@ -54,12 +54,12 @@ class AdminController extends Controller
 
     /**
      * Update the specified resource in storage.
-     * 
+     *
 
-     * 
+     *
 
      */
-    public function update(Request $request, string $id) 
+    public function update(Request $request, string $id)
     {
         //
         $ride = Pooling::find($id);
@@ -80,6 +80,8 @@ class AdminController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $ride = Pooling::find($id);
+        $ride->delete();
+        return redirect()->route('admin.rides')->with('success', 'Trajet Supprimer');
     }
 }

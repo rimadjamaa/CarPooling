@@ -58,7 +58,7 @@
         <div class="col-md-6">
             <label for="returnTime" class="form-label">Heure de Retour (estimer)</label>
             <input type="datetime-local" name="return_time" class="form-control" id="returnTime" required>
-            
+
         </div>
         <div class="col-md-6">
             <label for="price" class="form-label">Prix du Trajet (DA)</label>
