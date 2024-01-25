@@ -5,13 +5,30 @@ body {
 label{
     font-size: 15px;
 }
+.grid-content{
+    display: grid;
+    grid-template-columns: 35% 55%;
+    justify-content: center;
+    margin: 80px 10px;
+}
+.grid-item{
+    width: 100%;
+}
+iframe{
+    width: 100%;height:100%;
+
+}
+.ifarme-container{
+    border: 2px solid #e39bd4;
+    border-radius: 5px;
+    margin:0 30px;
+}
 .custom-card {
     background-color: #fde8f95e;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border: 2px solid #e39bd4;
     border-radius: 5px;
     text-align: center;
-    margin: 30px;
     box-shadow: -6px 11px 12px 2px rgba(0,0,0,0.38);
 -webkit-box-shadow: -6px 11px 12px 2px rgba(0,0,0,0.38);
 -moz-box-shadow: -6px 11px 12px 2px rgba(0,0,0,0.38);
@@ -50,11 +67,11 @@ input[type="checkbox"]{
     font-size: 18px;
     text-align: center;
     font-weight: bold;
-    border: 2px solid #af4c82 !important; 
-    background-color: #f0d8f0 !important; 
-    color: #bd135d !important; 
+    border: 2px solid #af4c82 !important;
+    background-color: #f0d8f0 !important;
+    color: #bd135d !important;
     width: 20%;
-    margin: 20px 0 20px 20px; 
+    margin: 20px 0 20px 20px;
     padding: 15px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);

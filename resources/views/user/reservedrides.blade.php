@@ -74,6 +74,7 @@
 @section('content')
     <br>
     <div class="container col-8 ">
+        <a href="{{ route('user.home') }}" style="font-size:1.5rem;justify-content:center;display:flex;margin-top:10px">Retour</a>
         <h2 class="mt-3 text-center text-center custom-title">Liste des Trajets Reserver</h2>
     <br>
         <ul class="ride-list">

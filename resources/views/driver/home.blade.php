@@ -10,9 +10,14 @@
     {{ session('success') }}
 </div>
 @endif
-
-<div class="container col-8 custom-card">
-    <h2 class="mt-3 text-center text-center custom-title">Proposition de Trajet</h2>
+<div class="grid-content">
+    <div class="grid-item">
+        <div class="ifarme-container" style="height: 100%;" >
+            <iframe id="googleMapIframe" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+<div class="container custom-card">
+    <h2 class="mt-3 text-center text-center custom-title">Proposer un Trajet</h2>
     <form method="POST" action="{{ route('store.ride') }}" class="row g-3 mt-3">
         @csrf
         <div class="col-md-6">
@@ -62,7 +67,7 @@
         </div>
         <div class="col-md-6">
             <label for="price" class="form-label">Prix du Trajet (DA)</label>
-            <div class="input-group"> 
+            <div class="input-group">
                 <input type="text" name="Price" class="form-control" id="price" placeholder="Ex: 20$" required>
                 <span class="input-group-text">DA</span>
             </div>
@@ -81,6 +86,7 @@
     <!-- Vous pouvez utiliser une section séparée ou une modal pour afficher les résultats -->
 
 </div>
+</div>
 @endsection
 @section('scripte')
 <script type="text/javascript">
@@ -94,7 +100,8 @@
                     // Affichez les coordonnées dans le paragraphe
                     document.getElementById('latitude').value = latitude ;
                     document.getElementById('longlitude').value = longitude ;
-
+                    var googleMapIframe = document.getElementById('googleMapIframe');
+                    googleMapIframe.src = `https://www.google.com/maps?q=${latitude},${longitude}&hl=es;z=14&output=embed`;
 
                 }, function (error) {
                     console.error('Erreur de géolocalisation:', error.message);

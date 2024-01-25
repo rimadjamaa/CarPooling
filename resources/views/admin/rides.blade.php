@@ -69,12 +69,12 @@
         }
 
         iframe {
-        width: 100%; 
-        height: 100%; 
+        width: 100%;
+        height: 100%;
         }
         .edit {
         display: flex;
-        
+
 }
 
     </style>
@@ -89,6 +89,7 @@
 @endif
     <br>
     <div class="container col-8 ">
+        <a href="{{ route('admin.home') }}" style="font-size:1.5rem;justify-content:center;display:flex;margin-top:10px">Retour</a>
         <h2 class="mt-3 text-center text-center custom-title">Liste des Trajets </h2>
         <ul class="ride-list">
             @foreach($reservations as $firstReservation)

@@ -100,6 +100,7 @@
     @endif
     <br>
     <div class="container col-8 ">
+        <a href="{{ route('driver.home') }}" style="font-size:1.5rem;justify-content:center;display:flex;margin-top:10px">Retour</a>
         <h2 class="text-center text-center custom-title" style="margin-top: 50px;margin-bottom:20px">Vos Trajets Proposer</h2>
         <ul class="ride-list">
             @forelse ($rides as $ride)

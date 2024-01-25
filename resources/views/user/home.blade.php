@@ -4,8 +4,14 @@
 @endsection
 
 @section('content')
-<div class="container col-8 custom-card">
-    <h2 class="mt-3 text-center text-center custom-title">Recherche de Trajet</h2>
+<div class="grid-content">
+<div class="grid-item">
+    <div class="ifarme-container" style="height: 100%;" >
+        <iframe id="googleMapIframe" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+</div>
+<div class="container custom-card grid-item">
+    <h2 class="mt-3 text-center text-center custom-title">Rechercher un Trajet</h2>
     {{-- this form will redirect to the methode of search which will redirect to the view user.rides with the reasult  --}}
     <form method="GET" action="{{route('user.ridesearch')}}" class="myform row g-3 mt-3">
         <div class="col-md-6">
@@ -57,6 +63,7 @@
     <!-- You can use a separate section or modal to show the results -->
 
 </div>
+</div>
 @endsection
 @section('scripte')
 <script type="text/javascript">
@@ -70,7 +77,8 @@
                     // Affichez les coordonnées dans le paragraphe
                     document.getElementById('latitude').value = latitude ;
                     document.getElementById('longlitude').value = longitude ;
-
+                    var googleMapIframe = document.getElementById('googleMapIframe');
+                    googleMapIframe.src = `https://www.google.com/maps?q=${latitude},${longitude}&hl=es;z=14&output=embed`;
                     // Remplissez automatiquement le champ de lieu de départ
                     // var googleMapsLink = `https://www.google.com/maps?q=${latitude},${longitude}`;
 
