@@ -16,7 +16,7 @@ To run this CarPooling website, you need the following software and technologies
 
 ## 📥  Installation
 ######  to run the the application :
-copy the http link from the gitbut > create a new folder > open the folder on vscode > go terminal > git init> git clone ```https://github.com/rimadjamaa/CarPooling.git```
+copy the http link from the gitbut > create a new folder > open the folder on vscode > go terminal > ```git init ```> ```git clone https://github.com/rimadjamaa/CarPooling.git```
 1. ```composer install```
 2.  ```npm install --save-dev vite```
 3.  ```npm run dev```
