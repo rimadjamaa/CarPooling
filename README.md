@@ -39,7 +39,9 @@ There are two cateogories of users:
  -  **Setting trip details:** They can specify the departure time, meeting point, intermediate stops, and other relevant details.
  
 ###### 🖼️ THE OFFER: (driver-proposal-modification-deletion)
-[driver-proposition-modification-suppresion_5XpXhLws.webm](https://github.com/rimadjamaa/CarPooling/assets/101057665/0a7d657b-e42a-4de7-8b5d-7914a4523973)
+
+[driver_proposition_modification_suppresion_5XpXhLws.webm](https://github.com/rimadjamaa/CarPooling/assets/101057665/0a7d657b-e42a-4de7-8b5d-7914a4523973)
+
 [driver-proposition-modification-suppresion_GRO5K5YZ.webm](https://github.com/rimadjamaa/CarPooling/assets/101057665/4a2834de-5e00-49c3-89cf-7c0bcc37808e)
 
 ##### 2. Passenger :  
