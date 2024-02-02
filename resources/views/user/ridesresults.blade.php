@@ -113,7 +113,9 @@
                 <p>Numero Tel du Conducteur: {{ $ride->user->phone_number }}</p>
                 <p>Destination: {{ $ride->destination }}</p>
                 <p>Prix de Trajet: {{ $ride->price }}$</p>
-                <a href="{{route('user.ridereserve' ,  ['id' => $ride->id, 'userid' => Auth::user()->id , 'Nb_place' => $Nb_place] )}} " ><button class="reserved-button">Réserver Trajet</button></a>
+                <a href="{{ route('user.ridereserve', ['id' => $ride->id, 'userid' => $ride->user_id, 'places' => $Nb_place]) }}">
+                    <button class="reserved-button">Réserver Trajet</button>
+                </a>
                 </div>
                 <div class="ifarme-container">
                 <iframe src="https://www.google.com/maps?q={{ $ride->latitude }},{{ $ride->longletude }}&hl=es;z=14&output=embed"  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>

@@ -58,7 +58,7 @@
             background-color: #792174;
         }
 
-        .modify-button {
+        .modify-button{
             right: 32px;
         }
 
@@ -114,7 +114,9 @@
                             <a class="custom-link" href="{{ route('admin.RideEdit',['id'=>$firstReservation->id]) }}">
                                 <button class="modify-button">Modifier</button>
                             </a>
-                            <button class="delete-button">Supprimer</button>
+                            <a class="custom-link" href="{{ route('admin.RideDelete',['id'=>$firstReservation->id]) }}">
+                                <button class="delete-button">Supprimer</button>
+                            </a>
                         </div>
                     </div>
 

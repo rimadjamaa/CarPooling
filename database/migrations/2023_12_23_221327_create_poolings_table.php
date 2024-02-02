@@ -21,7 +21,7 @@ return new class extends Migration
             $table->integer('nb_place_available')->nullable();
             $table->float('longletude')->nullable();
             $table->float('latitude')->nullable();
-            $table->integer('price')->nullable();
+            $table->bigInteger('price')->nullable();
             $table->enum('gender', ['male', 'female','any'])->nullable();
             $table->enum('bagage_size', ['small', 'medium','large'])->nullable();
             $table->timestamps();

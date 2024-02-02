@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use App\Models\Pooling;
 use App\Models\Reservation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RideController extends Controller
 {
@@ -42,7 +43,7 @@ class RideController extends Controller
         $ride->bagage_size=$request->Bagage_size;
         $ride->gender=$request->Gender;
         $ride->price=$request->Price;
-        $ride->user_id=3;
+        $ride->user_id=Auth::user()->id;
 
         $ride->save();
         return redirect()->route('driver.home')->with('success', 'Proposition valider');

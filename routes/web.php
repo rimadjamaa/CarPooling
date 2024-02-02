@@ -30,7 +30,7 @@ Route::middleware(['auth','role:user'])->group(function()
     Route::get("/user/Rides",[UserController::class, 'ListesRides'])->name("user.rides");
     Route::get("/user/ReservedRides",[UserController::class, 'show'])->name("user.reservedrides");
     Route::get("/user/ridesearch",[UserController::class, 'search'])->name("user.ridesearch");
-    Route::get("/user/ridereserve/{id}{userid}{Nb_place}",[UserController::class, 'reserve'])->name("user.ridereserve");
+    Route::get("/user/ridereserve/{id}/{userid}/{places}",[UserController::class, 'reserve'])->name("user.ridereserve");
 });
 // Route Driver
 Route::middleware(['auth','role:driver'])->group(function()

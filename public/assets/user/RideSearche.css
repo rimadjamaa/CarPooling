@@ -1,7 +1,7 @@
 body {
     background-color: #e0e9edad;
+    font-size: 1.5rem;
 }
-
 .grid-content{
     display: grid;
     grid-template-columns: 35% 55%;

@@ -69,6 +69,7 @@ class AdminController extends Controller
         $ride->latitude=$request->latitude;
         $ride->time_depart=$request->departureTime;
         $ride->nb_place_max=$request->numSeats;
+        $ride->nb_place_available=$request->numSeats;
         $ride->price=$request->Prix;
         $ride->user_id=$request->conducteur;
         $ride->save();

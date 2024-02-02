@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->integer('matricule');
-            $table->integer('phone_number');
+            $table->bigInteger('matricule');
+            $table->string('phone_number');
             $table->enum('genre', ['homme', 'femme'])->nullable();
             $table->tinyInteger('role')->default(0);
             // 0=user ,1=driver ,2=admin

@@ -3,70 +3,67 @@
 
 
 ## ✨  Objective
-  **CarPooling** is designed to facilitate users in sharing car rides with others traveling on the same route. Users can either offer to share their car or join another user who is willing to share.
-
-The platform targets frequent travelers seeking an affordable and comfortable mode of transport. It is particularly beneficial for office commuters sharing common routes, enabling them to reduce travel costs. Anyone can choose to offer a ride, contributing to the reduction of their own expenses.
+  **CarPooling** website is to provide a user-friendly and efficient platform for users to collaboratively share and manage their car journeys. The website aims to facilitate the connection between drivers and passengers sharing similar routes, thus promoting carpooling. The overall goal is to promote an economical, environmentally friendly, and practical transportation solution while giving users the opportunity to reduce their travel costs and contribute to decreasing the carbon footprint associated with individual commuting.
 
 ## 📋 Requirements
 To run this CarPooling website, you need the following software and technologies:
 
-- Web server (XAMPP)
-- PHP (version .....)
+- Web server (XAMPP/Laragon)
+- PHP (version 8.*)/Laravel 9 or 10
 - MySQL or any suitable database
-- jQuery
-- HTML/CSS
+- jQuery/NodeJS
+- HTML/CSS/Bootstrap
 
 ## 📥  Installation
-1. Clone the repository or download the source code.
+######  to run the the application :
+copy the http link from the gitbut > create a new folder > open the folder on vscode > go terminal > git init> git clone ```https://github.com/rimadjamaa/CarPooling.git```
+1. ```composer install```
+2.  ```npm install --save-dev vite```
+3.  ```npm run dev```
+4.  ```npm run build```
+5.  ```php artisan key:generate```
+6.  ```php artisan migrate ```
+7.  ```php artisan serve```
 
-3. Create a database in MySQL and import the provided SQL schema to set up the database structure.
+###### Commands to update the database :
+- ```php artisan migrate```
+- ```php artisan db:seed```
+  
+###### 🖼️ THE OFFER:
+[no_user.webm](https://github.com/rimadjamaa/CarPooling/assets/101057665/4b27512e-51b3-4267-a05c-a0ba40540308)
 
-5. Configure the database connection in the` config.php` file.
-
-7. Upload the code to your web server's root directory.
-
-9. Access the website through a web browser.
-
-Clone the repo locally:
-```shell
-git clone https://github.com/rimadjamaa/CarPooling
-cd CarPooling
-```
 ## 🧑 User  Authentication
 There are two cateogories of users:
-- **Driver** : A user who wants to share his ride with other people along the same route or is a full-time driver.
-- **Rider** : A user(other than driver) sharing a ride. He can book in realtime and will be assigned a driver from the pool of drivers available.
-- Users can sign up for a new account and sign in using their email and password.
-- Passwords are securely hashed and stored in the database.
+ ##### 1. Driver :  
+ -  **Offering rides:** Drivers can offer available seats in their car to other users who share the same route.
+ -  **Setting trip details:** They can specify the departure time, meeting point, intermediate stops, and other relevant details.
+ 
+###### 🖼️ THE OFFER: (driver-proposal-modification-deletion)
+[driver-proposition-modification-suppresion_5XpXhLws.webm](https://github.com/rimadjamaa/CarPooling/assets/101057665/0a7d657b-e42a-4de7-8b5d-7914a4523973)
+[driver-proposition-modification-suppresion_GRO5K5YZ.webm](https://github.com/rimadjamaa/CarPooling/assets/101057665/4a2834de-5e00-49c3-89cf-7c0bcc37808e)
 
-## 🧾 Create invoice
-- Invoices are generated for completed rides.
-- Invoices contain ride (instead of departure, destination, departure time, etc.).
-
-## 🚗Cars Management
-
-Admin users have the ability to manage car listings, which includes adding, editing, and deleting cars. Cars can be categorized and organized.
-
-### Car Details
-
-Car details include:
-- Name
-- Description
-- Ride Price
-- Images
-
-This allows for comprehensive management of the car listings on the platform.
-
+##### 2. Passenger :  
+ -  **Searching for rides:** Passengers can search for rides that match their needs in terms of route, time, and departure location.
+ -  **Booking seats:** They can reserve seats in the driver's vehicle and confirm their participation in the trip.
+ 
+  - Users can sign up for a new account and sign in using their email and password.
+  - Passwords are securely hashed and stored in the database.
+    
+  ###### 🖼️ THE OFFER:(user_search and_resultat_of_research_and_reservation)
+[user_recherch_et_resultat_derecherche_et_reservation.webm](https://github.com/rimadjamaa/CarPooling/assets/101057665/2f7738df-0d4c-4083-b8f8-69bf1f4213f4)
 
 ## 👨‍💼 Admin Panel
-photo
-- Admins can manage user accounts.
-- User details, such as name, email, and role, can be edited.
-- Admins can also deactivate or delete user accounts.
+- Admin are responsible for the day-to-day operations of the ride management website.
+- Monitor activities, and ensure that the platform is functioning smoothly.
+- Administrators oversee updates, maintenance (modification , suppression....) and improvements to the website to improve its performance and user experience.
 
-### 🖼️Banner Management
-- Admins can manage website banners, including uploading images and specifying target URLs.
-- Banners can be linked to product categories or promotional pages.
+###### 🖼️ THE OFFER:  (admin-deletion-modification)
+[admin-suppresion-modification_KOrNFNaW.webm](https://github.com/rimadjamaa/CarPooling/assets/101057665/9f1728d8-e7f5-4d14-859f-e896ed5ed54e)
+
+[admin-suppresion-modification_ttwvy668.webm](https://github.com/rimadjamaa/CarPooling/assets/101057665/f4b4b974-7703-4958-88ca-90c73af655e1)
+
+
+
 
 ## 📖  Overview
 This documentation provides an overview of the key features and functionalities of the CarPooling website. For each feature, detailed technical documentation, code examples, and implementation details are provided separately.

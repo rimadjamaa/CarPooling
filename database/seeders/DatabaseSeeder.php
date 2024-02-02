@@ -3,9 +3,12 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\User;
+use App\Models\Pooling;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -14,6 +17,10 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // \App\Models\User::factory(10)->create();
+
+        User::factory()->times(10)->create(['role' => '1']);
+        User::factory()->times(10)->create(['role' => '0']);
+        Pooling::factory()->times(10)->create();
 
         DB::table('users')->insert([
             'firstname' => 'Test',
